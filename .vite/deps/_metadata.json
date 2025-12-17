@@ -1,0 +1,60 @@
+{
+  "hash": "280b9e2a",
+  "configHash": "e79c1bc9",
+  "lockfileHash": "8c3f96bd",
+  "browserHash": "108610b7",
+  "optimized": {
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "df87f683",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "ad3aacbe",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "1578aeb0",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "cbbfac07",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "85361fe4",
+      "needsInterop": true
+    },
+    "swiper/modules": {
+      "src": "../../node_modules/swiper/modules/index.mjs",
+      "file": "swiper_modules.js",
+      "fileHash": "2a22d947",
+      "needsInterop": false
+    },
+    "swiper/react": {
+      "src": "../../node_modules/swiper/swiper-react.mjs",
+      "file": "swiper_react.js",
+      "fileHash": "28af1cdd",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "react-DqDII1As": {
+      "file": "react-DqDII1As.js",
+      "isDynamicEntry": false
+    },
+    "utils-BWJvoWob": {
+      "file": "utils-BWJvoWob.js",
+      "isDynamicEntry": false
+    }
+  }
+}
