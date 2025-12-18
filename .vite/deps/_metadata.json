@@ -1,60 +1,55 @@
 {
-  "hash": "280b9e2a",
-  "configHash": "e79c1bc9",
+  "hash": "903ab041",
+  "configHash": "30eefc2b",
   "lockfileHash": "8c3f96bd",
-  "browserHash": "108610b7",
+  "browserHash": "372cf433",
   "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "26d7b4a0",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "1e654016",
+      "needsInterop": true
+    },
     "framer-motion": {
       "src": "../../node_modules/framer-motion/dist/es/index.mjs",
       "file": "framer-motion.js",
-      "fileHash": "df87f683",
+      "fileHash": "0fe48ce7",
       "needsInterop": false
     },
     "lucide-react": {
       "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
       "file": "lucide-react.js",
-      "fileHash": "ad3aacbe",
-      "needsInterop": false
-    },
-    "react-dom/client": {
-      "src": "../../node_modules/react-dom/client.js",
-      "file": "react-dom_client.js",
-      "fileHash": "1578aeb0",
-      "needsInterop": true
-    },
-    "react": {
-      "src": "../../node_modules/react/index.js",
-      "file": "react.js",
-      "fileHash": "cbbfac07",
-      "needsInterop": true
-    },
-    "react/jsx-dev-runtime": {
-      "src": "../../node_modules/react/jsx-dev-runtime.js",
-      "file": "react_jsx-dev-runtime.js",
-      "fileHash": "85361fe4",
-      "needsInterop": true
-    },
-    "swiper/modules": {
-      "src": "../../node_modules/swiper/modules/index.mjs",
-      "file": "swiper_modules.js",
-      "fileHash": "2a22d947",
+      "fileHash": "0f790599",
       "needsInterop": false
     },
     "swiper/react": {
       "src": "../../node_modules/swiper/swiper-react.mjs",
       "file": "swiper_react.js",
-      "fileHash": "28af1cdd",
+      "fileHash": "55b5c7fb",
+      "needsInterop": false
+    },
+    "swiper/modules": {
+      "src": "../../node_modules/swiper/modules/index.mjs",
+      "file": "swiper_modules.js",
+      "fileHash": "a8265f72",
       "needsInterop": false
     }
   },
   "chunks": {
-    "react-DqDII1As": {
-      "file": "react-DqDII1As.js",
-      "isDynamicEntry": false
+    "chunk-GH6UE3LJ": {
+      "file": "chunk-GH6UE3LJ.js"
     },
-    "utils-BWJvoWob": {
-      "file": "utils-BWJvoWob.js",
-      "isDynamicEntry": false
+    "chunk-NBQCNOND": {
+      "file": "chunk-NBQCNOND.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
     }
   }
 }
