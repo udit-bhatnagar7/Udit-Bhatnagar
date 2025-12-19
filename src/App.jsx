@@ -16,6 +16,7 @@ import Experience from '../components/Experience';
 import Process from '../components/Process';
 import SEOHighlights from '../components/SEOHighlights';
 import Testimonials from '../components/Testimonials';
+import Team from '../components/Team';
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
         <CreativeWork/>
         <Process/>
         <Testimonials/>
+
+        <Team/>
 
         <Contact/>
       </main>
