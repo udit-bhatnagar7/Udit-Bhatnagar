@@ -30,13 +30,13 @@ export const personalInfo = {
   tagline: "UI/UX and Web Designer with 3+ years of experience.",
 
   // Use a real number here in production
-  phone: "+91 98765 43210",
+  phone: "+91 70270 71704",
 
   // Primary email for contact CTAs
-  email: "hello@udit.dev",
+  email: "work.uditbhatnagar@gmail.com",
 
   // Public LinkedIn profile link
-  linkedin: "https://www.linkedin.com/in/uditbhatnagar",
+  linkedin: "https://www.linkedin.com/in/udit-bhatnagar/",
 
   // Profile / portrait image used in hero or about section
   photoUrl: "/images/hero-profile.jpg",
