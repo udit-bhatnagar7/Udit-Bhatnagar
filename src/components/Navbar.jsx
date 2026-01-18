@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from "react";
-import logo from '../public/logo/uditbhatnagar.png'
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 20;
+          setScrolled(prev => (prev !== isScrolled ? isScrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -25,13 +34,15 @@ const Navbar = () => {
   return (
     <nav id="navbar" className={navClasses}>
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-        
+
         {/* Logo */}
         <a href="#hero" className="flex text-white gap-2 items-center">
           <img
-            src={logo}
+            src="/logo/uditbhatnagar.png"
             alt="Logo"
-            className="h-[46px] w-[50px] rounded-xl" 
+            width="50"
+            height="46"
+            className="h-[46px] w-auto rounded-xl"
           />
           <div className="flex flex-col">
             <span className="text-lg font-medium ">UDIT BHATNAGAR</span>

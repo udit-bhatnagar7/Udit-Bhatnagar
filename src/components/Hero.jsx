@@ -10,7 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { personalInfo } from "../data";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 const floatingSkillVariants = {
   float: (delay = 0) => ({
@@ -51,38 +51,38 @@ const Hero = () => {
     >
       <div className="max-w-5xl mx-auto px-6 py-16 flex flex-col items-center text-center">
         {/* small label */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="mb-3 text-[11px] tracking-[0.25em] uppercase text-slate-400"
         >
           UI/UX • Web Design • SEO • AI
-        </motion.div>
+        </m.div>
 
         {/* Name */}
-        <motion.h1
+        <m.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px] font-black tracking-tight leading-none mb-3"
         >
           {personalInfo.name.toUpperCase()}
-        </motion.h1>
+        </m.h1>
 
         {/* Animated role line */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
           className="flex items-center justify-center mb-6"
         >
-          <span className="text-[11px] uppercase tracking-[0.25em] text-slate-500 mr-3">
+          <span className="text-[11px] uppercase tracking-[0.25em] text-slate-400 mr-3">
             ROLE
           </span>
           <div className="h-5 overflow-hidden">
             <AnimatePresence mode="wait">
-              <motion.span
+              <m.span
                 key={roles[roleIndex]}
                 initial={{ y: 18, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -91,13 +91,13 @@ const Hero = () => {
                 className="block text-xs sm:text-sm font-semibold text-slate-100"
               >
                 {roles[roleIndex]}
-              </motion.span>
+              </m.span>
             </AnimatePresence>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Image + floating skills */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.9, y: 8 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -111,12 +111,12 @@ const Hero = () => {
               src={personalInfo.photoUrl || "/images/udit-profile.jpg"}
               alt={`${personalInfo.name} – UI/UX & Web Designer`}
               className="w-full h-full object-cover rounded-full shadow-2xl"
-              loading="lazy"
+            // Removed loading="lazy" for LCP optimization
             />
           </div>
 
           {/* floating skill pills */}
-          <motion.div
+          <m.div
             className="hidden sm:flex items-center gap-1 px-3 py-1.5 text-[11px] rounded-full bg-white/5 border border-white/10 absolute -top-3 -left-4"
             variants={floatingSkillVariants}
             animate="float"
@@ -124,9 +124,9 @@ const Hero = () => {
           >
             <Code2 size={12} />
             <span>HTML · CSS · Tailwind</span>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="hidden sm:flex items-center gap-1 px-3 py-1.5 text-[11px] rounded-full bg-white/5 border border-white/10 absolute top-5 -right-10"
             variants={floatingSkillVariants}
             animate="float"
@@ -134,9 +134,9 @@ const Hero = () => {
           >
             <Palette size={12} />
             <span>Figma · UI Kits</span>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="hidden sm:flex items-center gap-1 px-3 py-1.5 text-[11px] rounded-full bg-white/5 border border-white/10 absolute bottom-2 -left-8"
             variants={floatingSkillVariants}
             animate="float"
@@ -144,9 +144,9 @@ const Hero = () => {
           >
             <Globe size={12} />
             <span>SEO · Landing Pages</span>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="hidden sm:flex items-center gap-1 px-3 py-1.5 text-[11px] rounded-full bg-blue-600/90 border border-blue-400/60 absolute bottom-4 -right-6"
             variants={floatingSkillVariants}
             animate="float"
@@ -154,21 +154,21 @@ const Hero = () => {
           >
             <Sparkles size={12} />
             <span>AI Tools · ChatGPT</span>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Tagline */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="max-w-2xl mx-auto text-sm sm:text-base text-slate-400 mb-8 leading-relaxed"
         >
           {personalInfo.tagline}
-        </motion.p>
+        </m.p>
 
         {/* CTAs */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.34 }}
@@ -188,10 +188,10 @@ const Hero = () => {
           >
             Let&apos;s discuss your project
           </a>
-        </motion.div>
+        </m.div>
 
         {/* Contact row */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.38 }}
@@ -220,7 +220,7 @@ const Hero = () => {
             <Linkedin size={14} />
             <span>LinkedIn</span>
           </a>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

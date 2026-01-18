@@ -10,7 +10,7 @@ const Contact = () => {
       id="contact"
       className="bg-[#050509] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden"
     >
-   
+
       <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-20">
         {/* TOP CTA STRIP */}
         <section className="grid lg:grid-cols-2 gap-14 items-center">
@@ -90,9 +90,9 @@ const Contact = () => {
             <div className="grid sm:grid-cols-3 gap-8 text-xs sm:text-sm">
               {/* Quick links */}
               <div className="space-y-3">
-                <h4 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
+                <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
                   Quick Links
-                </h4>
+                </h3>
                 <nav className="space-y-1.5 text-slate-400 flex flex-col">
                   <FooterLink href="#about" label="About" />
                   <FooterLink href="#services" label="Services" />
@@ -104,9 +104,9 @@ const Contact = () => {
 
               {/* Portfolio */}
               <div className="space-y-3">
-                <h4 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
+                <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
                   Work
-                </h4>
+                </h3>
                 <nav className="space-y-1.5 text-slate-400 flex flex-col">
                   <FooterLink href="#projects" label="Selected Projects" />
                   <FooterLink href="#work-details" label="Case Studies" />
@@ -116,9 +116,9 @@ const Contact = () => {
 
               {/* Social */}
               <div className="space-y-3">
-                <h4 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
+                <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
                   Social
-                </h4>
+                </h3>
                 <nav className="space-y-1.5 text-slate-400 flex flex-col">
                   <FooterLink href={personalInfo.linkedin} label="LinkedIn" external />
                   <FooterLink href={`mailto:${personalInfo.email}`} label="Email" />
@@ -128,7 +128,7 @@ const Contact = () => {
           </div>
 
           {/* Bottom row */}
-          <div className="mt-10 pt-6 border-t border-white/5 text-center text-[11px] sm:text-xs text-slate-500">
+          <div className="mt-10 pt-6 border-t border-white/5 text-center text-[11px] sm:text-xs text-slate-400">
             <p>© {year} Udit Bhatnagar. All rights reserved.</p>
           </div>
         </section>

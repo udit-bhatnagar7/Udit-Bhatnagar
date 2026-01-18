@@ -39,7 +39,7 @@ const HowIWork = () => {
           {/* LEFT – BIG TITLE */}
           <div className="flex flex-col justify-between">
             <div>
-              <p className="text-[11px] tracking-[0.24em] uppercase text-slate-500 mb-4">
+              <p className="text-[11px] tracking-[0.24em] uppercase text-slate-400 mb-4">
                 Process
               </p>
               <h2 className="text-[38px] sm:text-[54px] lg:text-[72px] leading-none font-black tracking-tight text-slate-100">

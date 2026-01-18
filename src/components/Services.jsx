@@ -102,9 +102,9 @@ const Services = () => {
                 </div>
               </div>
 
-              <h4 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 {service.title}
-              </h4>
+              </h3>
 
               <p className="text-[12px] text-slate-400 mb-2">
                 {service.shortDescription ||

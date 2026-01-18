@@ -52,10 +52,10 @@ const About = () => {
 
             {/* Human side card */}
             <div className="p-6 bg-white/5 rounded-xl border border-white/10 mb-8">
-              <h4 className="font-semibold text-white mb-2 flex items-center gap-2">
+              <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
                 <Camera size={20} className="text-blue-400" />
                 The human side
-              </h4>
+              </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
                 {aboutContent.personal}
               </p>

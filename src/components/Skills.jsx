@@ -78,10 +78,10 @@ const Skills = () => {
               <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-blue-500 via-sky-400 to-purple-500 opacity-80" />
 
               <div className="flex items-center justify-between mb-2">
-                <h4 className="text-base font-semibold text-white flex items-center gap-2">
+                <h3 className="text-base font-semibold text-white flex items-center gap-2">
                   <span className="inline-block w-1 h-6 rounded-full bg-blue-500" />
                   {category.title}
-                </h4>
+                </h3>
                 <span className="text-[11px] text-slate-400 uppercase tracking-[0.18em]">
                   {category.skills.length} items
                 </span>

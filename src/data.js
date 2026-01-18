@@ -39,7 +39,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/uditbhatnagar",
 
   // Profile / portrait image used in hero or about section
-  photoUrl: "/images/uditbhatnagar.jpeg",
+  photoUrl: "/images/hero-profile.jpg",
 };
 
 /**

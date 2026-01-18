@@ -113,6 +113,7 @@ const Team = () => {
                   <a
                     href={member.linkedin}
                     className="p-2 rounded-full bg-white/10 hover:bg-blue-500/20 transition-colors"
+                    aria-label={`LinkedIn profile for ${member.name}`}
                   >
                     <Linkedin size={16} className="text-blue-300" />
                   </a>

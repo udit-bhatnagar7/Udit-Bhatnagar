@@ -1,49 +1,62 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { LazyMotion, domAnimation } from "framer-motion";
 import './App.css';
 
-// section imports
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Skills from '../components/Skills';
-import Services from '../components/Services';
-import Whatiwok from '../components/Whatiwok';
-import CaseStudy from '../components/CaseStudy';
-import Mainprojects from '../components/Mainprojects';
-import Contact from '../components/Contact';
-import CreativeWork from '../components/CreativeWork';
-import Experience from '../components/Experience';
-import Process from '../components/Process';
-import SEOHighlights from '../components/SEOHighlights';
-import Testimonials from '../components/Testimonials';
-import Team from '../components/Team';
+// Eager load for above-the-fold content
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+
+// Lazy load for below-the-fold content
+const About = React.lazy(() => import('./components/About'));
+const Skills = React.lazy(() => import('./components/Skills'));
+const Services = React.lazy(() => import('./components/Services'));
+const Whatiwok = React.lazy(() => import('./components/Whatiwok'));
+const ProjectHighlights = React.lazy(() => import('./components/ProjectHighlights'));
+const CaseStudy = React.lazy(() => import('./components/CaseStudy'));
+const Contact = React.lazy(() => import('./components/Contact'));
+const CreativeWork = React.lazy(() => import('./components/CreativeWork'));
+const Experience = React.lazy(() => import('./components/Experience'));
+const Process = React.lazy(() => import('./components/Process'));
+const SEOHighlights = React.lazy(() => import('./components/SEOHighlights'));
+const Testimonials = React.lazy(() => import('./components/Testimonials'));
+const Team = React.lazy(() => import('./components/Team'));
+
+// Loading fallback
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center py-20">
+    <div className="w-10 h-10 border-4 border-slate-200 border-t-blue-500 rounded-full animate-spin"></div>
+  </div>
+);
 
 function App() {
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <Navbar />
       <main>
         <Hero />
-        <Services/>
-        <Skills/>
-        <Whatiwok/>
-        
-        <CaseStudy/>
-        <Mainprojects/>
-        
-        <SEOHighlights/>
-        <Experience/>
-        <About /> 
 
-        <CreativeWork/>
-        <Process/>
-        <Testimonials/>
+        <Suspense fallback={<LoadingFallback />}>
+          <Services />
+          <Skills />
+          <Whatiwok />
 
-        <Team/>
+          <ProjectHighlights />
+          <CaseStudy />
 
-        <Contact/>
+          <SEOHighlights />
+          <Experience />
+          <About />
+
+          <CreativeWork />
+          <Process />
+          <Testimonials />
+
+          <Team />
+
+          <Contact />
+        </Suspense>
       </main>
-    </>
+    </LazyMotion>
   );
 }
 

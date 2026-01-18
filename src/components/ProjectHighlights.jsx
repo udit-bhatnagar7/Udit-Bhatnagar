@@ -125,6 +125,7 @@ const ProjectHighlights = () => {
                 <button
                   onClick={() => setSelectedStudy(null)}
                   className="p-2 rounded-full hover:bg-white/10 text-slate-300"
+                  aria-label="Close modal"
                 >
                   <X size={18} />
                 </button>

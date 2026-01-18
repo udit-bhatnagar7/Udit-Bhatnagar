@@ -62,7 +62,7 @@ const CreativeWork = () => {
             >
               <article className="shrink-0">
                 <div className="relative h-full rounded-[28px] bg-[#050509] border border-white/10 shadow-[0_22px_60px_rgba(0,0,0,0.85)] overflow-hidden group">
-                  
+
                   {/* Image */}
                   <div className="relative h-52 sm:h-56 md:h-60 overflow-hidden">
                     <img
@@ -85,10 +85,10 @@ const CreativeWork = () => {
                       </span>
                     </div>
 
-                    <h4 className="text-lg sm:text-xl font-semibold text-white flex items-center gap-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white flex items-center gap-2">
                       {item.title}
                       <ArrowUpRight size={16} className="text-slate-300" />
-                    </h4>
+                    </h3>
 
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-2">
                       {item.description}

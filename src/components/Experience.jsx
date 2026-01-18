@@ -48,16 +48,14 @@ const Experience = () => {
 
                 {/* Spacer side (for alternating layout) */}
                 <div
-                  className={`hidden md:block md:w-1/2 ${
-                    isLeft ? "" : "order-2"
-                  }`}
+                  className={`hidden md:block md:w-1/2 ${isLeft ? "" : "order-2"
+                    }`}
                 />
 
                 {/* Card side */}
                 <div
-                  className={`md:w-1/2 ${
-                    isLeft ? "md:pl-10 md:order-2" : "md:pr-10"
-                  }`}
+                  className={`md:w-1/2 ${isLeft ? "md:pl-10 md:order-2" : "md:pr-10"
+                    }`}
                 >
                   <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-6 sm:px-7 sm:py-7 shadow-[0_18px_45px_rgba(0,0,0,0.6)] hover:border-blue-400/60 hover:bg-white/8 transition-colors duration-300">
                     {/* Top row: company & duration */}
@@ -75,9 +73,9 @@ const Experience = () => {
                     </div>
 
                     {/* Role */}
-                    <h4 className="text-xl sm:text-2xl font-semibold text-white mb-3">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
                       {job.role}
-                    </h4>
+                    </h3>
 
                     {/* Description list */}
                     <ul className="space-y-2.5 mb-5">
