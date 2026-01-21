@@ -8,9 +8,25 @@ import {
   Palette,
   Globe,
   Sparkles,
+  Download,
 } from "lucide-react";
-import { personalInfo } from "../data";
+// Update imports to include data arrays
+import {
+  personalInfo,
+  creativeWorkData,
+  testimonialsData,
+  skillsData,
+  experienceData
+} from "../data";
 import { m, AnimatePresence } from "framer-motion";
+
+// Helper to calculate experience
+const startYear = 2019; // Based on experienceData
+const currentYear = new Date().getFullYear();
+const experienceYears = currentYear - startYear;
+
+// Helper to count skills
+const totalSkills = skillsData.reduce((acc, cat) => acc + cat.skills.length, 0);
 
 const floatingSkillVariants = {
   float: (delay = 0) => ({
@@ -24,6 +40,8 @@ const floatingSkillVariants = {
     },
   }),
 };
+
+
 
 const roles = [
   "UI/UX Designer",
@@ -50,15 +68,29 @@ const Hero = () => {
       aria-label="Hero section introducing Udit Bhatnagar"
     >
       <div className="max-w-5xl mx-auto px-6 py-16 flex flex-col items-center text-center">
-        {/* small label */}
+        {/* Available for Work Badge */}
         <m.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-2 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/20 bg-emerald-950/30 text-emerald-400 text-xs font-medium tracking-wide shadow-lg shadow-emerald-500/10 backdrop-blur-sm"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          Available for Work
+        </m.div>
+
+        {/* small label */}
+        {/* <m.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="mb-3 text-[11px] tracking-[0.25em] uppercase text-slate-400"
         >
           UI/UX • Web Design • SEO • AI
-        </m.div>
+        </m.div> */}
 
         {/* Name */}
         <m.h1
@@ -158,14 +190,14 @@ const Hero = () => {
         </m.div>
 
         {/* Tagline */}
-        <m.p
+        {/* <m.p
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="max-w-2xl mx-auto text-sm sm:text-base text-slate-400 mb-8 leading-relaxed"
         >
           {personalInfo.tagline}
-        </m.p>
+        </m.p> */}
 
         {/* CTAs */}
         <m.div
@@ -180,6 +212,15 @@ const Hero = () => {
           >
             View Selected Work
             <ArrowRight size={16} className="ml-2" />
+          </a>
+
+          <a
+            href={personalInfo.resume}
+            download
+            className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/20 bg-white/5 text-white text-sm font-semibold tracking-wide hover:bg-white/10 transition-colors backdrop-blur-sm"
+          >
+            Download Resume
+            <Download size={16} className="ml-2" />
           </a>
 
           <a
@@ -220,6 +261,136 @@ const Hero = () => {
             <Linkedin size={14} />
             <span>LinkedIn</span>
           </a>
+        </m.div>
+
+        {/* Stats Section */}
+        <m.div
+          initial={{ opacity: 0, y: 4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.42 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-16 w-full"
+        >
+          {/* Experience */}
+          <div className="text-center group">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-indigo-600 dark:text-indigo-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-award w-8 h-8"
+                  aria-hidden="true"
+                >
+                  <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
+                  <circle cx="12" cy="8" r="6"></circle>
+                </svg>
+              </div>
+            </div>
+            <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+              {experienceYears}+
+            </div>
+            <div className="text-slate-600 dark:text-slate-400 text-sm">
+              Years Experience
+            </div>
+          </div>
+
+          {/* Projects */}
+          <div className="text-center group">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-indigo-600 dark:text-indigo-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-folder-git-2 w-8 h-8"
+                  aria-hidden="true"
+                >
+                  <path d="M2 14.5A2.5 2.5 0 0 0 4.5 17h12a2.5 2.5 0 0 0 2.5-2.5v-10a2.5 2.5 0 0 0-2.5-2.5h-5.5L8.5 4H4.5A2.5 2.5 0 0 0 2 6.5z"></path>
+                  <line x1="12" x2="12" y1="13" y2="17"></line>
+                  <circle cx="12" cy="19" r="2"></circle>
+                </svg>
+              </div>
+            </div>
+            <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+              {creativeWorkData.length}+
+            </div>
+            <div className="text-slate-600 dark:text-slate-400 text-sm">
+              Projects Completed
+            </div>
+          </div>
+
+          {/* Clients */}
+          <div className="text-center group">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-indigo-600 dark:text-indigo-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-users w-8 h-8"
+                  aria-hidden="true"
+                >
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+              {testimonialsData.length}+
+            </div>
+            <div className="text-slate-600 dark:text-slate-400 text-sm">
+              Happy Clients
+            </div>
+          </div>
+
+          {/* Skills */}
+          <div className="text-center group">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-indigo-600 dark:text-indigo-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-zap w-8 h-8"
+                  aria-hidden="true"
+                >
+                  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                </svg>
+              </div>
+            </div>
+            <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+              {totalSkills}+
+            </div>
+            <div className="text-slate-600 dark:text-slate-400 text-sm">
+              Skills Mastered
+            </div>
+          </div>
         </m.div>
       </div>
     </section>

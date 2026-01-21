@@ -40,6 +40,9 @@ export const personalInfo = {
 
   // Profile / portrait image used in hero or about section
   photoUrl: "/images/hero-profile.jpg",
+
+  // Resume download link
+  resume: "/resume.pdf",
 };
 
 /**
