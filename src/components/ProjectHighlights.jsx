@@ -51,7 +51,11 @@ const ProjectHighlights = () => {
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src={`https://picsum.photos/seed/${study.id}/600/400`}
+                  src={
+                    study.thumbnail?.endsWith(".png")
+                      ? study.thumbnail
+                      : `https://picsum.photos/seed/${study.id}/600/400`
+                  }
                   alt={study.imageAlt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />

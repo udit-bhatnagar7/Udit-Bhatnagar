@@ -45,10 +45,11 @@ const CreativeWork = () => {
           freeMode={true}
           freeModeMomentum={true}
           freeModeMomentumRatio={0.4}
-          speed={1400}
+          speed={4000}
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
@@ -66,7 +67,11 @@ const CreativeWork = () => {
                   {/* Image */}
                   <div className="relative h-52 sm:h-56 md:h-60 overflow-hidden">
                     <img
-                      src={`https://picsum.photos/seed/${item.title + index}/800/600`}
+                      src={
+                        item.thumbnail?.endsWith(".png")
+                          ? item.thumbnail
+                          : `https://picsum.photos/seed/${item.title + index}/800/600`
+                      }
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
                       loading="lazy"

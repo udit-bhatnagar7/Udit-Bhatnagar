@@ -261,6 +261,7 @@ export const caseStudies = [
       "LikeMe is a local search and business directory platform. I led the end-to-end UX and UI, from information architecture to responsive web implementation.",
     role: "Lead UI/UX & Web Designer",
     imageAlt: "LikeMe local search platform UI",
+    thumbnail: "/images/projects/likeme.png",
 
     problems: [
       "Thousands of unstructured listings made browsing overwhelming.",
@@ -321,6 +322,7 @@ export const caseStudies = [
       "Naksh Carpet is a premium rug brand. The goal was to redesign their e-commerce experience to feel high-end while keeping the journey simple for buyers.",
     role: "UI/UX Strategist",
     imageAlt: "Premium rug e-commerce layout",
+    thumbnail: "/images/projects/naksh-carpet.png",
 
     problems: [
       "Old layout felt busy and budget-focused, hurting the luxury perception.",
@@ -380,6 +382,7 @@ export const caseStudies = [
       "GoldTips Hair sells premium human hair extensions. I designed and implemented a Zoho Commerce storefront focused on trust and smooth checkout.",
     role: "Web Designer & Developer",
     imageAlt: "GoldTips Hair e-commerce interface",
+    thumbnail: "/images/projects/goldtips.png",
 
     problems: [
       "Products were hard to discover due to poor categorisation.",
@@ -439,6 +442,7 @@ export const caseStudies = [
       "Zauco needed a refreshed corporate site that communicated their B2B value clearly, with better hierarchy and modern visuals.",
     role: "UI Designer",
     imageAlt: "Corporate website hero section",
+    thumbnail: "/images/projects/zauco-website.png",
 
     problems: [
       "Text-heavy pages with little visual hierarchy made it hard to scan.",
@@ -508,7 +512,7 @@ export const creativeWorkData = [
     description:
       "Local search engine and directory platform with modular design system and mega-menu navigation.",
     tags: ["Figma", "HTML", "Bootstrap", "jQuery"],
-    thumbnail: "/images/projects/likeme.jpg",
+    thumbnail: "/images/projects/likeme.png",
     link: "https://likeme.co.in",
   },
   {
@@ -518,7 +522,7 @@ export const creativeWorkData = [
     description:
       "Real-estate listing platform with visual cards, filters and location-aware search.",
     tags: ["Figma", "Bootstrap", "CSS"],
-    thumbnail: "/images/projects/hot-property-bazaar.jpg",
+    thumbnail: "/images/projects/hotproperty.png",
     link: "https://hotpropertybazaar.com",
   },
   {
@@ -537,7 +541,7 @@ export const creativeWorkData = [
     description:
       "Custom CRM interface with widget-based dashboards for sales teams.",
     tags: ["Figma", "Design System"],
-    thumbnail: "/images/projects/pragati-crm.jpg",
+    thumbnail: "/images/projects/pragati.png",
     link: "https://pragati.likeme.co.in",
   },
   {
@@ -547,7 +551,7 @@ export const creativeWorkData = [
     description:
       "HR management portal UI with employee tracking, leave flows and approvals.",
     tags: ["Figma", "Bootstrap", "Web App"],
-    thumbnail: "/images/projects/hrm-software.jpg",
+    thumbnail: "/images/projects/hrms.png",
     link: "https://hrmsoftware.in",
   },
   {
@@ -557,8 +561,17 @@ export const creativeWorkData = [
     description:
       "Corporate website for a large-scale organisation, designed in Figma and implemented in WordPress.",
     tags: ["Figma", "WordPress"],
-    thumbnail: "/images/projects/vikasa.jpg",
+    thumbnail: "/images/projects/vikasa.png",
     link: "https://vikasa.com",
+  },
+  {
+    id: "thaiger-app",
+    title: "The Thaiger News App",
+    category: "Mobile App",
+    description:
+      "Redesigned news application focusing on personalization, readability, and user engagement.",
+    tags: ["Figma", "Mobile UI", "UX"],
+    thumbnail: "/images/projects/thaiger-app.png",
   },
   {
     id: "thaiger-deals",
@@ -567,7 +580,7 @@ export const creativeWorkData = [
     description:
       "Deals and discounts mobile app with offer cards and integrated wallet flows.",
     tags: ["Figma", "Mobile UI"],
-    thumbnail: "/images/projects/thaiger-deals.jpg",
+    thumbnail: "/images/projects/thaiger-deals.png",
   },
   {
     id: "thaiger-property",
@@ -576,7 +589,7 @@ export const creativeWorkData = [
     description:
       "Property discovery site with clean, brand-aligned layouts and listing cards.",
     tags: ["Figma", "UI Design"],
-    thumbnail: "/images/projects/thaiger-property.jpg",
+    thumbnail: "/images/projects/thaiger-property.png",
   },
   {
     id: "thaiger-news",
@@ -585,7 +598,7 @@ export const creativeWorkData = [
     description:
       "News portal UI focused on readability, article hierarchy and ad-friendly layouts.",
     tags: ["Photoshop", "Content UI"],
-    thumbnail: "/images/projects/thaiger-news.jpg",
+    thumbnail: "/images/projects/thaiger-news.png",
   },
   {
     id: "naksh-carpet",
@@ -594,7 +607,7 @@ export const creativeWorkData = [
     description:
       "Premium rug store redesign with high-end visual language and improved browsing.",
     tags: ["UX", "UI", "E-commerce"],
-    thumbnail: "/images/projects/naksh-carpet.jpg",
+    thumbnail: "/images/projects/naksh-carpet.png",
   },
   {
     id: "goldtips-hair",
@@ -603,7 +616,7 @@ export const creativeWorkData = [
     description:
       "High-converting Zoho Commerce store for premium hair extensions.",
     tags: ["Zoho", "Web Design"],
-    thumbnail: "/images/projects/goldtips-hair.jpg",
+    thumbnail: "/images/projects/goldtips.png",
   },
   {
     id: "zauco-website",
@@ -612,7 +625,7 @@ export const creativeWorkData = [
     description:
       "Corporate UI refresh with clearer content hierarchy and enquiry-driven layout.",
     tags: ["UI", "Corporate"],
-    thumbnail: "/images/projects/zauco-website.jpg",
+    thumbnail: "/images/projects/zauco-website.png",
   },
 ];
 
@@ -832,5 +845,107 @@ export const testimonialsData = [
     company: "AppWorks",
     quote:
       "Deep research-driven thinking-rare combination of creativity and logic.",
+  },
+];
+
+//
+// ──────────────────────────────────────────────────────────────
+//   GRAPHIC DESIGN GALLERY
+// ──────────────────────────────────────────────────────────────
+//
+
+/**
+ * Visual design work for the masonry gallery:
+ * - Logos
+ * - YouTube Thumbnails
+ * - Flyers
+ * - Social Media Graphics
+ *
+ * Each item has a title, category, and image URL.
+ */
+export const graphicDesignData = [
+  {
+    id: "g1",
+    title: "Brand Identity Concept",
+    category: "Logo Design",
+    type: "logo",
+    image: "https://picsum.photos/seed/logo1/600/600",
+  },
+  {
+    id: "g2",
+    title: "Tech Review Thumbnail",
+    category: "YouTube Thumbnail",
+    type: "thumbnail",
+    image: "https://picsum.photos/seed/thumb1/800/450",
+  },
+  {
+    id: "g3",
+    title: "Event Flyer 2024",
+    category: "Flyer Design",
+    type: "flyer",
+    image: "https://picsum.photos/seed/flyer1/600/800",
+  },
+  {
+    id: "g4",
+    title: "EcoStartup Logo",
+    category: "Logo Design",
+    type: "logo",
+    image: "https://picsum.photos/seed/logo2/600/600",
+  },
+  {
+    id: "g5",
+    title: "Gaming Channel Art",
+    category: "Social Media",
+    type: "social",
+    image: "https://picsum.photos/seed/social1/800/800",
+  },
+  {
+    id: "g6",
+    title: "Product Launch Poster",
+    category: "Flyer Design",
+    type: "flyer",
+    image: "https://picsum.photos/seed/flyer2/600/800",
+  },
+  {
+    id: "g7",
+    title: "Minimalist Monogram",
+    category: "Logo Design",
+    type: "logo",
+    image: "https://picsum.photos/seed/logo3/600/600",
+  },
+  {
+    id: "g8",
+    title: "Vlog Thumbnail",
+    category: "YouTube Thumbnail",
+    type: "thumbnail",
+    image: "https://picsum.photos/seed/thumb2/800/450",
+  },
+  {
+    id: "g9",
+    title: "Instagram Campaign",
+    category: "Social Media",
+    type: "social",
+    image: "https://picsum.photos/seed/social2/800/1000",
+  },
+  {
+    id: "g10",
+    title: "Corporate Brochure",
+    category: "Print Design",
+    type: "flyer",
+    image: "https://picsum.photos/seed/print1/600/800",
+  },
+  {
+    id: "g11",
+    title: "Podcast Cover Art",
+    category: "Social Media",
+    type: "social",
+    image: "https://picsum.photos/seed/social3/800/800",
+  },
+  {
+    id: "g12",
+    title: "Festival Banner",
+    category: "Web Graphics",
+    type: "social",
+    image: "https://picsum.photos/seed/web1/1200/600",
   },
 ];
