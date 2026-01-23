@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 
@@ -47,8 +48,8 @@ const Home = () => {
                     <Testimonials />
 
                     {/* Replaced Team with DesignGallery */}
-                    <DesignGallery />
-
+                    <DesignGallery limit={10} />
+                    {/* <Link to="/gallery" className="inline-block mt-4 text-sm text-blue-400 hover:underline">View All Designs</Link> */}
                     <Contact />
                 </Suspense>
             </main>

@@ -14,12 +14,13 @@ const graphicDesignData = Object.entries(importAll).map(([path, module]) => {
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const DesignGallery = () => {
-    // Show only first 6 items
-    const displayedItems = graphicDesignData.slice(0, 6);
+const DesignGallery = ({ limit }) => {
+    // Show items with optional limit
+    const displayedItems = typeof limit === 'number' ? graphicDesignData.slice(0, limit) : graphicDesignData; // display limited or all images
 
     return (
         <section className="py-24 bg-[#050509] border-t border-white/10 relative overflow-hidden">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-6 text-center">Design Gallery</h2>
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
@@ -38,7 +39,7 @@ const DesignGallery = () => {
                         to="/gallery"
                         className="group flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-sm font-medium text-white"
                     >
-                        View Full Gallery
+                        View All Designs
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>
@@ -52,7 +53,7 @@ const DesignGallery = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="break-inside-avoid relative group rounded-2xl overflow-hidden bg-[#0a0a12] border border-white/10"
+                            className="break-inside-avoid relative group rounded-2xl overflow-hidden bg-[#0a0a12] border border-white/10 h-full"
                         >
                             <img
                                 src={item.image}
@@ -62,14 +63,14 @@ const DesignGallery = () => {
                             />
 
                             {/* Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            {/* <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span className="text-[10px] uppercase tracking-wider text-blue-400 font-semibold mb-1">
                                     {item.category}
                                 </span>
                                 <h3 className="text-lg font-medium text-white">
                                     {item.title}
                                 </h3>
-                            </div>
+                            </div> */}
                         </motion.div>
                     ))}
                 </div>

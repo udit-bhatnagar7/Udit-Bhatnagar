@@ -5,6 +5,7 @@ import './App.css';
 
 import Home from './pages/Home';
 import FullGallery from './pages/FullGallery';
+import Resume from './pages/Resume';
 
 // ScrollToTop component to reset scroll on route change
 const ScrollToTop = () => {
@@ -26,6 +27,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<FullGallery />} />
+            <Route path="/resume" element={<Resume />} />
           </Routes>
         </AnimatePresence>
       </LazyMotion>

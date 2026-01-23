@@ -49,15 +49,7 @@ const FullGallery = () => {
                                     loading="lazy"
                                 />
 
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                                    <span className="text-[10px] uppercase tracking-wider text-blue-400 font-semibold mb-1">
-                                        {item.category}
-                                    </span>
-                                    <h3 className="text-lg font-medium text-white">
-                                        {item.title}
-                                    </h3>
-                                </div>
+
                             </motion.div>
                         ))}
                     </div>

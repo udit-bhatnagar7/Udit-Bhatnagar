@@ -9,6 +9,9 @@ import {
   Globe,
   Sparkles,
   Download,
+  Award,
+  Briefcase,
+  Zap,
 } from "lucide-react";
 // Update imports to include data arrays
 import {
@@ -67,7 +70,7 @@ const Hero = () => {
       className="min-h-screen w-full bg-[#050509] text-white flex items-center"
       aria-label="Hero section introducing Udit Bhatnagar"
     >
-      <div className="max-w-5xl mx-auto px-6 py-16 flex flex-col items-center text-center">
+      <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col items-center text-center">
         {/* Available for Work Badge */}
         <m.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -165,7 +168,7 @@ const Hero = () => {
             custom={0.5}
           >
             <Palette size={12} />
-            <span>Figma · UI Kits</span>
+            <span>Figma · UI/UX</span>
           </m.div>
 
           <m.div
@@ -206,20 +209,19 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.34 }}
           className="flex flex-col sm:flex-row items-center gap-4 mb-8"
         >
-          <a
+          {/* <a
             href="#projects"
             className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-slate-950 text-sm font-semibold tracking-wide hover:bg-slate-200 transition-colors"
           >
             View Selected Work
             <ArrowRight size={16} className="ml-2" />
-          </a>
+          </a> */}
 
           <a
-            href={personalInfo.resume}
-            download
+            href="/resume"
             className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/20 bg-white/5 text-white text-sm font-semibold tracking-wide hover:bg-white/10 transition-colors backdrop-blur-sm"
           >
-            Download Resume
+            View Resume
             <Download size={16} className="ml-2" />
           </a>
 
@@ -268,127 +270,50 @@ const Hero = () => {
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.42 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-16 w-full"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto mt-16 w-full px-4"
         >
           {/* Experience */}
-          <div className="text-center group">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
-              <div className="text-indigo-600 dark:text-indigo-400">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-award w-8 h-8"
-                  aria-hidden="true"
-                >
-                  <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
-                  <circle cx="12" cy="8" r="6"></circle>
-                </svg>
+          <div className="p-6 rounded-xl bg-white/5 border border-white/5 flex flex-row items-center gap-4">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-lg group-hover:scale-110 transition-transform duration-300">
+              <Award size={24} />
+            </div>
+            <div className="text-start">
+              <div className="text-3xl font-bold text-white mb-1">
+                3+
               </div>
-            </div>
-            <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
-              {experienceYears}+
-            </div>
-            <div className="text-slate-600 dark:text-slate-400 text-sm">
-              Years Experience
+              <div className="text-slate-400 text-xs font-medium uppercase tracking-wide">
+                Years Experience
+              </div>
             </div>
           </div>
 
           {/* Projects */}
-          <div className="text-center group">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
-              <div className="text-indigo-600 dark:text-indigo-400">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-folder-git-2 w-8 h-8"
-                  aria-hidden="true"
-                >
-                  <path d="M2 14.5A2.5 2.5 0 0 0 4.5 17h12a2.5 2.5 0 0 0 2.5-2.5v-10a2.5 2.5 0 0 0-2.5-2.5h-5.5L8.5 4H4.5A2.5 2.5 0 0 0 2 6.5z"></path>
-                  <line x1="12" x2="12" y1="13" y2="17"></line>
-                  <circle cx="12" cy="19" r="2"></circle>
-                </svg>
+          <div className="p-6 rounded-xl bg-white/5 border border-white/5 flex flex-row items-center gap-4">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-lg group-hover:scale-110 transition-transform duration-300">
+              <Briefcase size={24} />
+            </div>
+            <div className="text-start">
+              <div className="text-3xl font-bold text-white mb-1">
+                15+
               </div>
-            </div>
-            <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
-              {creativeWorkData.length}+
-            </div>
-            <div className="text-slate-600 dark:text-slate-400 text-sm">
-              Projects Completed
+              <div className="text-slate-400 text-xs font-medium uppercase tracking-wide">
+                Projects Done
+              </div>
             </div>
           </div>
 
           {/* Clients */}
-          <div className="text-center group">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
-              <div className="text-indigo-600 dark:text-indigo-400">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-users w-8 h-8"
-                  aria-hidden="true"
-                >
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                </svg>
+          <div className="p-6 rounded-xl bg-white/5 border border-white/5 flex flex-row items-center gap-4">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500/10 text-blue-400 rounded-lg group-hover:scale-110 transition-transform duration-300">
+              <Globe size={24} />
+            </div>
+            <div className="text-start">
+              <div className="text-3xl font-bold text-white mb-1">
+                2+
               </div>
-            </div>
-            <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
-              {testimonialsData.length}+
-            </div>
-            <div className="text-slate-600 dark:text-slate-400 text-sm">
-              Happy Clients
-            </div>
-          </div>
-
-          {/* Skills */}
-          <div className="text-center group">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
-              <div className="text-indigo-600 dark:text-indigo-400">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-zap w-8 h-8"
-                  aria-hidden="true"
-                >
-                  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-                </svg>
+              <div className="text-slate-400 text-xs font-medium uppercase tracking-wide">
+                Happy Clients
               </div>
-            </div>
-            <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
-              {totalSkills}+
-            </div>
-            <div className="text-slate-600 dark:text-slate-400 text-sm">
-              Skills Mastered
             </div>
           </div>
         </m.div>
