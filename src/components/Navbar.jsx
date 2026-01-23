@@ -57,7 +57,7 @@ const Navbar = () => {
           <a href="#skills" className={`${linkBase} ${linkColor}`}>Skills</a>
           <a href="#work" className={`${linkBase} ${linkColor}`}>Work</a>
           <a href="#testimonials" className={`${linkBase} ${linkColor}`}>Testimonials</a>
-          <a href="#contact" className={`${linkBase} ${linkColor}`}>Contact</a>
+          <a href="#contact-section" className={`${linkBase} ${linkColor}`}>Contact</a>
         </div>
 
         {/* Mobile Toggle */}
@@ -85,7 +85,7 @@ const Navbar = () => {
           <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
           <a href="#work" onClick={() => setIsOpen(false)}>Work</a>
           <a href="#testimonials" onClick={() => setIsOpen(false)}>Testimonials</a>
-          <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+          <a href="#contact-section" onClick={() => setIsOpen(false)}>Contact</a>
         </div>
       )}
     </nav>

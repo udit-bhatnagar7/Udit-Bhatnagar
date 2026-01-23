@@ -7,7 +7,7 @@ const Contact = () => {
 
   return (
     <footer
-      id="contact"
+      id="contact-section"
       className="bg-[#050509] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden"
     >
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Mail,
@@ -217,16 +218,16 @@ const Hero = () => {
             <ArrowRight size={16} className="ml-2" />
           </a> */}
 
-          <a
-            href="/resume"
+          <Link
+            to="/resume"
             className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/20 bg-white/5 text-white text-sm font-semibold tracking-wide hover:bg-white/10 transition-colors backdrop-blur-sm"
           >
             View Resume
             <Download size={16} className="ml-2" />
-          </a>
+          </Link>
 
           <a
-            href="#contact"
+            href="#contact-section"
             className="text-sm text-slate-300 hover:text-white underline-offset-4 hover:underline"
           >
             Let&apos;s discuss your project
