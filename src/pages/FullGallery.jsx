@@ -1,12 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { graphicDesignData } from "../data";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Dynamically import all graphics from the assets folder
+const importAll = import.meta.glob("../assets/graphics/*.{png,jpg,jpeg,svg}", { eager: true });
+const items = Object.entries(importAll).map(([path, module]) => {
+    const fileName = path.split('/').pop().replace(/\.(png|jpg|jpeg|svg)$/i, "");
+    return {
+        id: fileName,
+        title: fileName.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
+        category: "Graphic",
+        image: module.default,
+    };
+});
+
 const FullGallery = () => {
-    // Show all items
-    const items = graphicDesignData;
 
     return (
         <main className="min-h-screen bg-[#050509] text-white">

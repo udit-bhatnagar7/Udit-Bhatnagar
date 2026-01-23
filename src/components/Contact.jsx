@@ -30,7 +30,7 @@ const Contact = () => {
           <div className="flex flex-col items-start lg:items-end gap-8 text-left lg:text-right">
             <p className="text-sm sm:text-base text-slate-300 max-w-md">
               Have a product, website or idea you want to ship? I help teams
-              with UX, UI, web design and front-end execution—from idea to live
+              with UX, UI, web design and front-end execution from idea to live
               experience.
             </p>
 
@@ -73,10 +73,10 @@ const Contact = () => {
             {/* Left: big name in background */}
             <div className="relative overflow-hidden">
               <div className="relative">
-                <span className="block text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-slate-800 leading-none select-none">
+                <span className="block text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-slate-600 leading-none select-none">
                   Udit
                 </span>
-                <span className="block -mt-3 text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-slate-800 leading-none select-none">
+                <span className="block -mt-3 text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-slate-600 leading-none select-none">
                   Bhatnagar
                 </span>
               </div>
