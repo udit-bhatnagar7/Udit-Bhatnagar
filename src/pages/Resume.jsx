@@ -21,9 +21,7 @@ import { personalInfo } from '../data';
 const Resume = () => {
     const resumeRef = useRef(null);
 
-    const handleDownload = () => {
-        window.print();
-    };
+
 
     const handleShare = async () => {
         if (navigator.share) {
@@ -166,13 +164,14 @@ const Resume = () => {
 
             {/* Floating Actions */}
             <div className="fixed bottom-8 right-8 flex flex-col gap-4 z-50 print:hidden">
-                <button
-                    onClick={handleDownload}
-                    className="p-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full shadow-lg hover:shadow-emerald-500/20 transition-all hover:scale-110 active:scale-95"
-                    title="Download/Print Resume"
+                <a
+                    href="/Resume/Udit%20Bhatnagar.pdf"
+                    download="Udit_Bhatnagar_Resume.pdf"
+                    className="p-4 bg-white hover:bg-slate-200 text-black rounded-full shadow-lg transition-all hover:scale-110 active:scale-95 flex items-center justify-center"
+                    title="Download Resume"
                 >
                     <Download size={24} />
-                </button>
+                </a>
                 <button
                     onClick={handleShare}
                     className="p-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-lg hover:shadow-blue-500/20 transition-all hover:scale-110 active:scale-95"
@@ -207,14 +206,14 @@ const Resume = () => {
                     <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
                         {/* Avatar */}
                         <div className="relative group shrink-0">
-                            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-emerald-500/20 overflow-hidden shadow-2xl relative z-10 print:border-slate-200">
+                            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/10 overflow-hidden shadow-2xl relative z-10 print:border-slate-200">
                                 <img
                                     src={personalInfo.photoUrl}
                                     alt={personalInfo.name}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 bg-emerald-500/20 blur-2xl rounded-full -z-10 group-hover:bg-emerald-500/30 transition-all print:hidden" />
+                            <div className="absolute inset-0 bg-white/5 blur-2xl rounded-full -z-10 group-hover:bg-white/10 transition-all print:hidden" />
                         </div>
 
                         {/* Info */}
@@ -222,25 +221,25 @@ const Resume = () => {
                             <h1 className="text-4xl md:text-5xl font-black text-white mb-3 tracking-tight print:text-black">
                                 Udit Bhatnagar
                             </h1>
-                            <p className="text-lg md:text-xl text-emerald-400 font-medium mb-6 print:text-emerald-700">
+                            <p className="text-lg md:text-xl text-slate-200 font-medium mb-6 print:text-slate-700">
                                 UI/UX & Web Designer
                             </p>
 
                             <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm font-medium text-slate-400 print:text-slate-600">
                                 <a href="tel:+917027071704" className="flex items-center gap-2 hover:text-white transition-colors py-1 px-3 bg-white/5 rounded-lg border border-white/5 print:border-slate-200 print:bg-slate-50">
-                                    <Phone size={14} className="text-emerald-500" />
+                                    <Phone size={14} className="text-white" />
                                     +91 70270-71704
                                 </a>
                                 <a href="mailto:uditbhatnagar6@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors py-1 px-3 bg-white/5 rounded-lg border border-white/5 print:border-slate-200 print:bg-slate-50">
-                                    <Mail size={14} className="text-emerald-500" />
+                                    <Mail size={14} className="text-white" />
                                     uditbhatnagar6@gmail.com
                                 </a>
                                 <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors py-1 px-3 bg-white/5 rounded-lg border border-white/5 print:hidden">
-                                    <Linkedin size={14} className="text-emerald-500" />
+                                    <Linkedin size={14} className="text-white" />
                                     LinkedIn Profile
                                 </a>
                                 <div className="flex items-center gap-2 py-1 px-3 bg-white/5 rounded-lg border border-white/5 print:border-slate-200 print:bg-slate-50">
-                                    <MapPin size={14} className="text-emerald-500" />
+                                    <MapPin size={14} className="text-white" />
                                     India
                                 </div>
                             </div>
@@ -254,7 +253,7 @@ const Resume = () => {
                     {/* About Me */}
                     <section>
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3 print:text-black">
-                            <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 print:text-black print:bg-transparent print:p-0">
+                            <div className="p-2 bg-white/10 rounded-lg text-white print:text-black print:bg-transparent print:p-0">
                                 <Star size={20} />
                             </div>
                             About Me
@@ -277,7 +276,7 @@ const Resume = () => {
                             {/* Experience */}
                             <section className="print:break-inside-avoid">
                                 <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3 print:text-black">
-                                    <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 print:text-black print:bg-transparent print:p-0">
+                                    <div className="p-2 bg-white/10 rounded-lg text-white print:text-black print:bg-transparent print:p-0">
                                         <Briefcase size={20} />
                                     </div>
                                     Professional Experience
@@ -287,16 +286,16 @@ const Resume = () => {
                                     {experience.map((role, idx) => (
                                         <div key={idx} className="relative pl-8">
                                             {/* Timeline Dot */}
-                                            <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#0a0a12] border-2 border-emerald-500 print:bg-white" />
+                                            <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#0a0a12] border-2 border-white print:bg-white" />
 
                                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
                                                 <h3 className="text-lg font-bold text-white print:text-black">{role.role}</h3>
-                                                <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20 print:bg-slate-100 print:text-slate-700 print:border-slate-200 uppercase tracking-wide">
+                                                <span className="text-[10px] font-bold px-2 py-0.5 bg-white/10 text-white rounded border border-white/20 print:bg-slate-100 print:text-slate-700 print:border-slate-200 uppercase tracking-wide">
                                                     {role.duration}
                                                 </span>
                                             </div>
 
-                                            <div className="text-sm text-emerald-500/90 font-medium mb-3 flex items-center gap-2 print:text-emerald-700">
+                                            <div className="text-sm text-slate-300 font-medium mb-3 flex items-center gap-2 print:text-slate-700">
                                                 {role.company}
                                             </div>
 
@@ -311,26 +310,26 @@ const Resume = () => {
                             {/* Projects */}
                             <section className="print:break-inside-avoid">
                                 <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3 print:text-black">
-                                    <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 print:text-black print:bg-transparent print:p-0">
+                                    <div className="p-2 bg-white/10 rounded-lg text-white print:text-black print:bg-transparent print:p-0">
                                         <Globe size={20} />
                                     </div>
                                     Projects Highlights
                                 </h2>
-                                <div className="grid gap-4">
+                                <div className="grid gap-3 lg:grid-cols-2 print:grid-cols-2">
                                     {projects.map((project, idx) => (
-                                        <div key={idx} className="group p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/[0.07] transition-colors print:border-slate-200 print:bg-white print:shadow-sm break-inside-avoid">
+                                        <div key={idx} className="group p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/[0.07] transition-colors print:border-slate-200 print:bg-white print:shadow-sm break-inside-avoid">
                                             <div className="flex justify-between items-start mb-2">
                                                 <div>
-                                                    <h4 className="font-bold text-white group-hover:text-emerald-400 transition-colors print:text-black inline-flex items-center gap-2">
+                                                    <h4 className="font-bold text-white group-hover:text-white transition-colors print:text-black inline-flex items-center gap-2">
                                                         {project.title}
                                                         {project.link && <ExternalLink size={12} className="opacity-50 print:hidden" />}
                                                     </h4>
-                                                    <p className="text-xs text-emerald-500/70 font-medium print:text-emerald-700">
+                                                    <p className="text-xs text-slate-400 font-medium print:text-slate-700">
                                                         {project.role}
                                                     </p>
                                                 </div>
                                             </div>
-                                            <p className="text-sm text-slate-400 print:text-slate-600">
+                                            <p className="text-sm text-slate-400 print:text-slate-600 line-clamp-3">
                                                 {project.desc}
                                             </p>
                                         </div>
@@ -345,7 +344,7 @@ const Resume = () => {
                             {/* Expertise */}
                             <section className="print:break-inside-avoid">
                                 <h2 className="text-lg font-bold text-white mb-5 flex items-center gap-3 print:text-black">
-                                    <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 print:text-black print:bg-transparent print:p-0">
+                                    <div className="p-2 bg-white/10 rounded-lg text-white print:text-black print:bg-transparent print:p-0">
                                         <Zap size={18} />
                                     </div>
                                     Area of Expertise
@@ -353,7 +352,7 @@ const Resume = () => {
                                 <div className="flex flex-wrap gap-2">
                                     {areasOfExpertise.map((item, idx) => (
                                         <div key={idx} className="flex items-center gap-2 text-sm text-slate-300 w-full mb-1 print:text-slate-700">
-                                            <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full shrink-0" />
+                                            <span className="w-1.5 h-1.5 bg-white rounded-full shrink-0" />
                                             {item}
                                         </div>
                                     ))}
@@ -363,7 +362,7 @@ const Resume = () => {
                             {/* Tools */}
                             <section className="print:break-inside-avoid">
                                 <h2 className="text-lg font-bold text-white mb-5 flex items-center gap-3 print:text-black">
-                                    <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 print:text-black print:bg-transparent print:p-0">
+                                    <div className="p-2 bg-white/10 rounded-lg text-white print:text-black print:bg-transparent print:p-0">
                                         <Palette size={18} />
                                     </div>
                                     Tools & Platforms
@@ -400,7 +399,7 @@ const Resume = () => {
                             {/* Education */}
                             <section className="print:break-inside-avoid">
                                 <h2 className="text-lg font-bold text-white mb-5 flex items-center gap-3 print:text-black">
-                                    <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500 print:text-black print:bg-transparent print:p-0">
+                                    <div className="p-2 bg-white/10 rounded-lg text-white print:text-black print:bg-transparent print:p-0">
                                         <Award size={18} />
                                     </div>
                                     Education
@@ -408,7 +407,7 @@ const Resume = () => {
                                 <div className="space-y-4">
                                     {education.map((edu, idx) => (
                                         <div key={idx} className="p-3 rounded-xl bg-white/5 border border-white/5 print:border-slate-200 print:bg-white">
-                                            <div className="text-emerald-400 text-xs font-bold mb-1 print:text-emerald-700">{edu.year}</div>
+                                            <div className="text-slate-200 text-xs font-bold mb-1 print:text-slate-700">{edu.year}</div>
                                             <div className="font-bold text-white text-sm mb-1 print:text-black">{edu.degree}</div>
                                             <div className="text-xs text-slate-400 print:text-slate-600">{edu.school}</div>
                                         </div>
