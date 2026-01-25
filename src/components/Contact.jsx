@@ -17,13 +17,14 @@ const Contact = () => {
           {/* Left: big text */}
           <div>
             <h2 className="font-black leading-none tracking-tight text-left">
-              <span className="block text-[40px] sm:text-[60px] md:text-[80px] lg:text-[96px]">
+              <span className="block text-[40px] sm:text-[60px] md:text-[80px] lg:text-[96px] text-white">
                 LET&apos;S WORK
               </span>
               <span className="block text-[40px] sm:text-[60px] md:text-[80px] lg:text-[96px] text-slate-200">
                 TOGETHER
               </span>
             </h2>
+
           </div>
 
           {/* Right: copy + CTA */}
@@ -73,10 +74,10 @@ const Contact = () => {
             {/* Left: big name in background */}
             <div className="relative overflow-hidden">
               <div className="relative">
-                <span className="block text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-slate-600 leading-none select-none">
+                <span className="block text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-white leading-none select-none">
                   Udit
                 </span>
-                <span className="block -mt-3 text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-slate-600 leading-none select-none">
+                <span className="block -mt-3 text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-slate-200 leading-none select-none">
                   Bhatnagar
                 </span>
               </div>
@@ -129,7 +130,7 @@ const Contact = () => {
 
           {/* Bottom row */}
           <div className="bg-[#050509] text-white pt-12 border-t border-white/10 mt-10 pt-6 border-t border-white/5 text-center text-[11px] sm:text-xs">
-            <p className="text-sm text-white/80">
+            <p className="text-xs text-slate-300">
               © {year} Udit Bhatnagar. All rights reserved.
             </p>
           </div>
