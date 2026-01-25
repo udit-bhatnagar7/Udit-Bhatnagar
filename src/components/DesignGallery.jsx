@@ -20,7 +20,6 @@ const DesignGallery = ({ limit }) => {
 
     return (
         <section className="py-24 bg-[#050509] border-t border-white/10 relative overflow-hidden">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-6 text-center">Design Gallery</h2>
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>

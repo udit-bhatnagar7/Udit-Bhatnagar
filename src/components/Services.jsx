@@ -59,7 +59,7 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-start max-w-2xl mb-14"
         >
           <p className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
             What I Do

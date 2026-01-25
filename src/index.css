@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
-body{padding: 0;margin: 0;padding-top: 55px;background-color: #050509;}
+body {
+  padding: 0;
+  margin: 0;
+  padding-top: 55px;
+  background-color: #050509;
+}
 
 /* Hide scrollbar for Chrome, Safari and Edge */
 ::-webkit-scrollbar {
@@ -15,4 +20,11 @@ html {
 /* Hide scrollbar for IE, Edge */
 body {
   -ms-overflow-style: none;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }

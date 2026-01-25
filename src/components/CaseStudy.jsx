@@ -45,7 +45,7 @@ const CaseStudy = () => {
       id="work-details"
       className="py-24 bg-[#050509] border-t border-white/10 relative"
     >
-      <div className="max-w-6xl mx-auto px-6 relative">
+      <div className="max-w-7xl mx-auto px-6 relative">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}

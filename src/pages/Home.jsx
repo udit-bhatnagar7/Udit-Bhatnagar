@@ -9,6 +9,8 @@ const Skills = React.lazy(() => import('../components/Skills'));
 const Services = React.lazy(() => import('../components/Services'));
 const Whatiwok = React.lazy(() => import('../components/Whatiwok'));
 const ProjectHighlights = React.lazy(() => import('../components/ProjectHighlights'));
+const AISpotlight = React.lazy(() => import('../components/AISpotlight'));
+
 const CaseStudy = React.lazy(() => import('../components/CaseStudy'));
 const Contact = React.lazy(() => import('../components/Contact'));
 const CreativeWork = React.lazy(() => import('../components/CreativeWork'));
@@ -17,6 +19,8 @@ const Process = React.lazy(() => import('../components/Process'));
 const SEOHighlights = React.lazy(() => import('../components/SEOHighlights'));
 const Testimonials = React.lazy(() => import('../components/Testimonials'));
 const DesignGallery = React.lazy(() => import('../components/DesignGallery'));
+const FAQ = React.lazy(() => import('../components/FAQ'));
+
 
 const LoadingFallback = () => (
     <div className="flex items-center justify-center py-20">
@@ -34,6 +38,8 @@ const Home = () => {
                 <Suspense fallback={<LoadingFallback />}>
                     <Services />
                     <Skills />
+                    <AISpotlight />
+
                     <Whatiwok />
 
                     <ProjectHighlights />
@@ -50,7 +56,9 @@ const Home = () => {
                     {/* Replaced Team with DesignGallery */}
                     <DesignGallery limit={10} />
                     {/* <Link to="/gallery" className="inline-block mt-4 text-sm text-blue-400 hover:underline">View All Designs</Link> */}
+                    <FAQ />
                     <Contact />
+
                 </Suspense>
             </main>
         </>

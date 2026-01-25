@@ -32,63 +32,69 @@ const Navbar = () => {
   const linkColor = "text-slate-200 hover:text-white";
 
   return (
-    <nav id="navbar" className={navClasses}>
-      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+    <header>
+      <nav id="navbar" className={navClasses}>
+        <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
 
-        {/* Logo */}
-        <a href="#hero" className="flex text-white gap-2 items-center">
-          <img
-            src="/logo/uditbhatnagar.png"
-            alt="Logo"
-            width="50"
-            height="46"
-            className="h-[46px] w-auto rounded-xl"
-          />
-          <div className="flex flex-col">
-            <span className="text-lg font-medium ">UDIT BHATNAGAR</span>
-            <small className="text-xs">UI/UX & Web Designer</small>
+          {/* Logo */}
+          <a href="#hero" className="flex text-white gap-2 items-center">
+            <img
+              src="/logo/uditbhatnagar.png"
+              alt="Logo"
+              width="50"
+              height="46"
+              className="h-[46px] w-auto rounded-xl"
+            />
+            <div className="flex flex-col">
+              <span className="text-lg font-medium ">UDIT BHATNAGAR</span>
+              <small className="text-xs">UI/UX & Web Designer</small>
+            </div>
+          </a>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#about" className={`${linkBase} ${linkColor}`}>About</a>
+            <a href="#services" className={`${linkBase} ${linkColor}`}>Services</a>
+            <a href="#skills" className={`${linkBase} ${linkColor}`}>Skills</a>
+            <a href="#work" className={`${linkBase} ${linkColor}`}>Work</a>
+            <a href="#testimonials" className={`${linkBase} ${linkColor}`}>Testimonials</a>
+            <a href="#faq" className={`${linkBase} ${linkColor}`}>FAQ</a>
+            <a href="#contact-section" className={`${linkBase} ${linkColor}`}>Contact</a>
+
           </div>
-        </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="#about" className={`${linkBase} ${linkColor}`}>About</a>
-          <a href="#services" className={`${linkBase} ${linkColor}`}>Services</a>
-          <a href="#skills" className={`${linkBase} ${linkColor}`}>Skills</a>
-          <a href="#work" className={`${linkBase} ${linkColor}`}>Work</a>
-          <a href="#testimonials" className={`${linkBase} ${linkColor}`}>Testimonials</a>
-          <a href="#contact-section" className={`${linkBase} ${linkColor}`}>Contact</a>
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-slate-100 focus:outline-none"
+          >
+            {isOpen ? (
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 6l12 12M6 18L18 6" />
+              </svg>
+            ) : (
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-slate-100 focus:outline-none"
-        >
-          {isOpen ? (
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M6 6l12 12M6 18L18 6" />
-            </svg>
-          ) : (
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
-      </div>
+        {/* Mobile Nav */}
+        {isOpen && (
+          <div className="md:hidden bg-[#050509]/98 border-t border-white/10 shadow-lg py-6 px-6 flex flex-col space-y-4">
+            <a href="#about" onClick={() => setIsOpen(false)}>About</a>
+            <a href="#services" onClick={() => setIsOpen(false)}>Services</a>
+            <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
+            <a href="#work" onClick={() => setIsOpen(false)}>Work</a>
+            <a href="#testimonials" onClick={() => setIsOpen(false)}>Testimonials</a>
+            <a href="#faq" onClick={() => setIsOpen(false)}>FAQ</a>
+            <a href="#contact-section" onClick={() => setIsOpen(false)}>Contact</a>
 
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden bg-[#050509]/98 border-t border-white/10 shadow-lg py-6 px-6 flex flex-col space-y-4">
-          <a href="#about" onClick={() => setIsOpen(false)}>About</a>
-          <a href="#services" onClick={() => setIsOpen(false)}>Services</a>
-          <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
-          <a href="#work" onClick={() => setIsOpen(false)}>Work</a>
-          <a href="#testimonials" onClick={() => setIsOpen(false)}>Testimonials</a>
-          <a href="#contact-section" onClick={() => setIsOpen(false)}>Contact</a>
-        </div>
-      )}
-    </nav>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 };
 

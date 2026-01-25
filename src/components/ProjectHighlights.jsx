@@ -1,11 +1,19 @@
 // components/ProjectHighlights.jsx
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { caseStudies } from "../data";
 import { ArrowUpRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/autoplay";
+
 const ProjectHighlights = () => {
   const [selectedStudy, setSelectedStudy] = useState(null);
+  const swiperRef = useRef(null);
 
   return (
     <section
@@ -33,70 +41,92 @@ const ProjectHighlights = () => {
           </p>
         </motion.div>
 
-        {/* Grid */}
+        {/* Swiper Slider */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {caseStudies.map((study) => (
-            <motion.article
-              key={study.id}
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col group"
-            >
-              {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={
-                    study.thumbnail?.endsWith(".png")
-                      ? study.thumbnail
-                      : `https://picsum.photos/seed/${study.id}/600/400`
-                  }
-                  alt={study.imageAlt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                {study.category && (
-                  <span className="absolute top-4 left-4 text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1 rounded-full bg-black/70 text-white">
-                    {study.category}
-                  </span>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="p-5 flex flex-col gap-3 flex-1">
-                <h3 className="text-base sm:text-lg font-semibold text-white">
-                  {study.title}
-                </h3>
-                <p className="text-[12px] text-slate-300 line-clamp-3">
-                  {study.overview}
-                </p>
-
-                {/* solution/stack tags */}
-                <div className="flex flex-wrap gap-1.5 mt-1">
-                  {study.tags.slice(0, 4).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/5 text-slate-100 border border-white/10"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => setSelectedStudy(study)}
-                  className="mt-3 inline-flex items-center justify-between text-[12px] font-semibold text-blue-300 hover:text-white bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/40 rounded-full px-4 py-2 transition-colors"
+          <Swiper
+            modules={[Autoplay, FreeMode]}
+            slidesPerView={"auto"}
+            spaceBetween={24}
+            loop={true}
+            freeMode={true}
+            freeModeMomentum={true}
+            freeModeMomentumRatio={0.4}
+            speed={4000}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            className="overflow-visible cursor-grab active:cursor-grabbing"
+          >
+            {caseStudies.map((study) => (
+              <SwiperSlide
+                key={study.id}
+                style={{ width: "400px" }}
+                className="h-auto"
+              >
+                <article
+                  className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col group h-full"
                 >
-                  <span>View project details</span>
-                  <ArrowUpRight size={14} className="ml-1" />
-                </button>
-              </div>
-            </motion.article>
-          ))}
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden shrink-0">
+                    <img
+                      src={
+                        study.thumbnail?.endsWith(".png")
+                          ? study.thumbnail
+                          : `https://picsum.photos/seed/${study.id}/600/400`
+                      }
+                      alt={study.imageAlt}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {study.category && (
+                      <span className="absolute top-4 left-4 text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1 rounded-full bg-black/70 text-white">
+                        {study.category}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5 flex flex-col gap-3 flex-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-white min-h-[57px]">
+                      {study.title}
+                    </h3>
+                    <p className="text-[12px] text-slate-300 line-clamp-3 mb-auto min-h-[57px]">
+                      {study.overview}
+                    </p>
+
+                    {/* solution/stack tags */}
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {study.tags.slice(0, 4).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/5 text-slate-100 border border-white/10"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => setSelectedStudy(study)}
+                      className="mt-4 inline-flex items-center justify-between text-[12px] font-semibold text-blue-300 hover:text-white bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/40 rounded-full px-4 py-2 transition-colors"
+                    >
+                      <span>View project details</span>
+                      <ArrowUpRight size={14} className="ml-1" />
+                    </button>
+                  </div>
+                </article>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </motion.div>
       </div>
 

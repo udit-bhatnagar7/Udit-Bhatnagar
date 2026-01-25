@@ -1,113 +1,130 @@
 import React from "react";
 import { experienceData } from "../data";
-import { Briefcase, Calendar } from "lucide-react";
 
 const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-24 bg-[#050509] border-t border-white/10 relative overflow-hidden"
+      className="py-20 bg-[#050509] border-t border-white/10 relative overflow-hidden"
     >
-      {/* subtle background glow */}
-      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-blue-500/10 blur-[120px]" />
+      {/* background glow */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/10" />
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 relative z-10">
+        {/* Header */}
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-start mb-16">
           <h3 className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
             My Journey
           </h3>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
             Professional Experience
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-sm sm:text-base text-slate-400 max-w-2xl">
             A snapshot of the roles where I&apos;ve designed, shipped and
             iterated on real products with real constraints.
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative mt-10 space-y-12">
-          {/* Vertical gradient line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 -z-10">
-            <div className="w-px h-full bg-gradient-to-b from-blue-500 via-slate-600 to-purple-500 opacity-60" />
+        {/* TIMELINE WRAPPER */}
+        <div className="relative">
+          {/* ONE vertical line */}
+          {/* Vertical Line Grid Overlay */}
+          <div className="absolute inset-0 hidden sm:grid grid-cols-[1fr_24px_4fr] gap-6 pointer-events-none">
+            {/* Left column spacer */}
+            <div />
+            {/* Center column with line */}
+            <div className="flex justify-center h-full">
+              <div className="w-px h-full bg-gradient-to-b from-blue-500/60 via-slate-500/40 to-purple-500/60" />
+            </div>
+            {/* Right column spacer */}
+            <div />
           </div>
 
-          {experienceData.map((job, index) => {
-            const isLeft = index % 2 === 0;
 
-            return (
+          <div className="space-y-16">
+            {experienceData.map((job, index) => (
               <div
                 key={index}
-                className="relative md:flex md:items-stretch md:gap-10"
+                className="grid grid-cols-1 sm:grid-cols-[1fr_24px_4fr] gap-6 items-start"
               >
-                {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6">
-                  <div className="w-4 h-4 rounded-full bg-[#050509] border-2 border-blue-400 shadow-[0_0_0_4px_rgba(37,99,235,0.25)]" />
-                </div>
+                {/* LEFT COLUMN */}
+                <div className="text-left sm:text-right pt-1">
+                  <div className="text-xs tracking-[0.2em] uppercase text-blue-400 mb-1">
+                    {job.duration || "Present"}
+                  </div>
 
-                {/* Spacer side (for alternating layout) */}
-                <div
-                  className={`hidden md:block md:w-1/2 ${isLeft ? "" : "order-2"
-                    }`}
-                />
+                  <div className="text-xl font-semibold text-white">
+                    {job.company}
+                  </div>
 
-                {/* Card side */}
-                <div
-                  className={`md:w-1/2 ${isLeft ? "md:pl-10 md:order-2" : "md:pr-10"
-                    }`}
-                >
-                  <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-6 sm:px-7 sm:py-7 shadow-[0_18px_45px_rgba(0,0,0,0.6)] hover:border-blue-400/60 hover:bg-white/8 transition-colors duration-300">
-                    {/* Top row: company & duration */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                      <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-300">
-                        <Briefcase size={14} />
-                        <span>{job.company}</span>
-                      </div>
-                      <div className="inline-flex items-center gap-2 text-[11px] text-slate-300">
-                        <Calendar size={12} />
-                        <span className="uppercase tracking-[0.16em]">
-                          {job.duration}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Role */}
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
-                      {job.role}
-                    </h3>
-
-                    {/* Description list */}
-                    <ul className="space-y-2.5 mb-5">
-                      {job.description.map((desc, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 text-sm text-slate-200 leading-relaxed"
-                        >
-                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-400/80 shrink-0" />
-                          <span>{desc}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Tools */}
-                    {job.tools && job.tools.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {job.tools.map((tool) => (
-                          <span
-                            key={tool}
-                            className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/5 text-slate-100 border border-white/10"
-                          >
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                  <div className="mt-1 text-sm italic text-slate-400">
+                    {job.role}
                   </div>
                 </div>
+
+                {/* DOT */}
+                <div className="relative flex justify-center">
+                  <div className="relative z-10 mt-1 w-4 h-4 rounded-full bg-[#050509] border-2 border-blue-400 shadow-[0_0_0_6px_rgba(59,130,246,0.25)]" />
+                </div>
+
+                {/* RIGHT CARD */}
+                <div className="rounded-2xl bg-gradient-to-br from-white/8 to-white/3 backdrop-blur-xl border border-white/10 p-6 sm:p-7 shadow-[0_24px_70px_rgba(0,0,0,0.6)]">
+                  {/* Description */}
+                  <ul className="space-y-4 mb-6">
+                    {job.description.map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-4 text-sm text-slate-200 leading-relaxed"
+                      >
+                        <span className="mt-2 w-2 h-2 rounded-full bg-blue-400 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Projects */}
+                  {/* {job.projects?.length > 0 && (
+                    <div className="border-t border-white/10 pt-5 mb-5">
+                      <h4 className="text-[11px] uppercase tracking-[0.18em] text-purple-300 mb-3">
+                        Key Projects
+                      </h4>
+
+                      <div className="space-y-3">
+                        {job.projects.map((project, i) => (
+                          <div
+                            key={i}
+                            className="rounded-lg bg-white/5 border border-white/10 p-4"
+                          >
+                            <div className="text-sm font-semibold text-white">
+                              {project.name}
+                            </div>
+                            <p className="text-sm text-slate-400 mt-1">
+                              {project.summary}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )} */}
+
+                  {/* Tools */}
+                  {job.tools && (
+                    <div className="flex flex-wrap gap-2">
+                      {job.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="px-3 py-1 rounded-full text-[11px] uppercase tracking-wide bg-white/5 text-slate-300 border border-white/10"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

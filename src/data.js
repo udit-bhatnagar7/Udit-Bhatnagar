@@ -490,7 +490,167 @@ export const caseStudies = [
     learnings:
       "Content structure is king. Good UI for B2B is about turning dense text into clear, scannable chunks.",
   },
+  {
+    id: "mls-sofo-ai",
+    featured: true,
+    category: "AI & PropTech",
+    subtitle: "AI-Powered Real Estate Automation",
+    title: "MLS Sofo AI – The Future of PropTech",
+    tags: ["AI", "Automation", "NLP", "PropTech"],
+    overview:
+      "Developed a high-performance UI/UX ecosystem that leverages custom AI models to ingest raw real-estate documents and instantly generate SEO-optimized, market-ready listings.",
+    role: "Product Designer & AI Specialist",
+    imageAlt: "AI intelligence dashboard",
+    thumbnail: "/images/projects/mls-sofo.png",
+
+    problems: [
+      "Manual data entry from legal documents was slow and error-prone.",
+      "Real estate agents spent hours formatting listings for different platforms.",
+      "Lack of standardized data structure hurt search visibility.",
+    ],
+
+    solutions: [
+      {
+        title: "AI Extraction Engine",
+        description:
+          "Implemented advanced OCR and NLP processing to pull deep data from messy legal docs with 99.8% accuracy.",
+      },
+      {
+        title: "Automated Syndication",
+        description:
+          "Smart workflow triggers that syndicate listings across platforms automatically, reducing latency to 140ms.",
+      },
+      {
+        title: "Neural Core Dashboard",
+        description:
+          "Visualized complex ML insights in a user-friendly dashboard for real-time monitoring.",
+      },
+    ],
+
+    seoStrategy: [
+      {
+        title: "Automated SEO",
+        description:
+          "AI generates SEO-optimized descriptions and meta tags automatically for every listing.",
+      },
+    ],
+
+    impact: [
+      "Drastically reduced listing time from hours to seconds.",
+      "Improved data accuracy to 99.8%, eliminating human error.",
+      "Enabled agents to focus on closing deals rather than admin work.",
+    ],
+
+    learnings:
+      "Integrating AI into traditional workflows requires not just technical capability but a UX that breeds trust in the machine's output.",
+  },
+  {
+    id: "hot-property-bazaar",
+    featured: true,
+    category: "Real Estate Marketplace",
+    subtitle: "Real Estate Listing Platform",
+    title: "Hot Property Bazaar – Buying & Selling Simplified",
+    tags: ["Real Estate", "Web App", "Marketplace"],
+    overview:
+      "A comprehensive real-estate listing platform designed to simplify property discovery with visual cards, advanced filters, and location-aware search.",
+    role: "Lead Designer",
+    imageAlt: "Real estate listing website",
+    thumbnail: "/images/projects/hotproperty.png",
+
+    problems: [
+      "Users found it difficult to filter properties by specific criteria like amenities or facing.",
+      "Map-based search was clunky and disconnected from list views.",
+      "Property details pages were cluttered and lacked key decision-making info.",
+    ],
+
+    solutions: [
+      {
+        title: "Visual Search Interface",
+        description:
+          "Designed card-based results with prominent photos and key specs (BHK, Area) for quick scanning.",
+      },
+      {
+        title: "Interactive Maps",
+        description:
+          "Integrated map view with list view, allowing users to search by drawing on the map.",
+      },
+      {
+        title: "Lead Gen Optimization",
+        description:
+          "Strategically placed inquiry forms and 'Schedule Visit' CTAs to maximize conversions.",
+      },
+    ],
+
+    seoStrategy: [
+      {
+        title: "Hyper-Local Landing Pages",
+        description:
+          "Generated pages for specific neighborhoods and property types to capture local intent.",
+      },
+    ],
+
+    impact: [
+      "Increased average session duration by 40% with better search UX.",
+      "Higher lead generation conversion rate on property detail pages.",
+    ],
+
+    learnings:
+      "In real estate, high-quality visuals and location context are the primary drivers of user engagement.",
+  },
+  {
+    id: "hot-property-bazaar-app",
+    featured: true,
+    category: "Mobile Application",
+    subtitle: "Property Search Mobile App",
+    title: "Hot Property Bazaar App – Real Estate on the Go",
+    tags: ["Mobile App", "iOS", "Android", "UX"],
+    overview:
+      "The mobile companion to the Hot Property Bazaar platform, enabling users to browse, save, and inquire about properties directly from their phones.",
+    role: "Mobile UX Designer",
+    imageAlt: "Real estate mobile app interface",
+    thumbnail: "/images/projects/hot-property-bazaar-app.jpg",
+
+    problems: [
+      "Desktop experience didn't translate well to mobile browsers.",
+      "Location-based features were underutilized on web.",
+      "Push notifications for new listings were missing.",
+    ],
+
+    solutions: [
+      {
+        title: "Native Mobile Patterns",
+        description:
+          "Utilized bottom navigation and touch-friendly gestures for seamless browsing.",
+      },
+      {
+        title: "Saved Searches & Alerts",
+        description:
+          "Allowed users to save search criteria and receive instant notifications for new matches.",
+      },
+      {
+        title: "One-Tap Inquiry",
+        description:
+          "Implemented easy WhatsApp and Call integrations for immediate agent contact.",
+      },
+    ],
+
+    seoStrategy: [
+      {
+        title: "App Store Optimization",
+        description: "Optimized app store listing with keywords and high-quality screenshots."
+      }
+    ],
+
+    impact: [
+      "Significant increase in return users via push notifications.",
+      "Higher engagement with location-based 'Near Me' searches.",
+    ],
+
+    learnings:
+      "Mobile contexts require simplified flows. Speed and ease of contact are critical for mobile property seekers.",
+  },
 ];
+
 
 //
 // ──────────────────────────────────────────────────────────────
@@ -631,6 +791,39 @@ export const creativeWorkData = [
 
 //
 // ──────────────────────────────────────────────────────────────
+//   FAQ
+// ──────────────────────────────────────────────────────────────
+//
+
+export const faqData = [
+  {
+    question: "Do you only design, or also build?",
+    answer: "I handle both UI/UX design and implementation. Depending on the project, I either deliver production-ready designs or build the product using modern no-code, low-code, or frontend workflows."
+  },
+  {
+    question: "What types of projects are the best fit for you?",
+    answer: "I work best with startups, founders, and small teams who care about clarity, usability, and long-term scalability—not just visuals."
+  },
+  {
+    question: "How do you usually work with clients?",
+    answer: "I start with understanding the problem, then move into UX structure, visual design, and delivery. Communication is async-first with regular check-ins."
+  },
+  {
+    question: "Do you work with existing teams or products?",
+    answer: "Yes. I frequently step into existing products to improve UX, redesign interfaces, or collaborate with in-house developers."
+  },
+  {
+    question: "How do you price your work?",
+    answer: "Pricing depends on scope and impact. I typically work on fixed-scope projects or short retainers rather than hourly contracts."
+  },
+  {
+    question: "What projects are NOT a good fit?",
+    answer: "Projects that prioritize speed over clarity, or expect heavy work without proper discovery, usually aren’t a good fit."
+  }
+];
+
+//
+// ──────────────────────────────────────────────────────────────
 //   EXPERIENCE / TIMELINE
 // ──────────────────────────────────────────────────────────────
 //
@@ -645,35 +838,111 @@ export const experienceData = [
     company: "Self-employed",
     duration: "2023 - Present",
     description: [
-      "Designing UI/UX for businesses and personal brands.",
-      "Building websites using no-code platforms.",
-      "Creating SEO optimized designs for better ranking.",
-      "Collaborating directly with clients from multiple industries.",
+      "Led end-to-end UI/UX design for businesses and personal brands across multiple industries.",
+      "Designed and launched conversion-focused websites using no-code, low-code, and AI-assisted development workflows.",
+      "Built ecommerce and business websites using platforms like Zoho Commerce, Webflow, WordPress, and Wix.",
+      "Applied vibe coding techniques to rapidly translate ideas into functional UI using HTML, CSS, and Tailwind CSS.",
+      "Improved search visibility, performance, and user engagement through SEO-optimized layouts and UX-driven design decisions.",
+      "Worked directly with clients from discovery to deployment, including requirements gathering, wireframes, prototyping, and final delivery."
     ],
-    tools: ["Figma", "Webflow", "WordPress", "Wix", "SEO Tools"],
+    tools: [
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Figma",
+      "Adobe XD",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "Canva",
+      "Webflow",
+      "WordPress",
+      "Zoho Commerce",
+      "Wix",
+      "Notion",
+      "ClickUp",
+      "Lovable",
+      "Builder.io",
+      "UXPilot",
+      "SEO Tools",
+      "ChatGPT",
+      "Google AI"
+    ]
+  },
+  {
+    role: "UI/UX & Web Designer",
+    company: "Likeme",
+    duration: "2021 - 2023",
+    description: [
+      "Designed responsive and user-centric web interfaces for multiple client projects.",
+      "Handled UI/UX design, website layouts, and frontend structure for brand and marketing websites.",
+      "Created visual assets including logos, social media posts, and short promotional videos aligned with brand identity.",
+      "Collaborated with marketing and development teams to ensure design consistency across web and social platforms.",
+      "Improved user engagement through usability improvements, layout optimization, and visual hierarchy."
+    ],
+    tools: [
+      "Figma",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "Canva",
+      "HTML",
+      "CSS",
+      "Bootstrap"
+    ]
   },
   {
     role: "UI/UX Designer",
-    company: "ABC Agency",
-    duration: "2021 - 2023",
-    description: [
-      "Designed responsive web interfaces.",
-      "Improved conversion through UX audits.",
-      "Collaborated with dev teams to implement design systems.",
-    ],
-    tools: ["Figma", "Notion", "Jira"],
-  },
-  {
-    role: "Web Designer",
     company: "Freelance",
     duration: "2019 - 2021",
     description: [
-      "Created landing pages and ecommerce stores.",
-      "Developed brand identities for small businesses.",
+      "Designed UI/UX and responsive websites for small businesses and product teams, with a focus on discovery, wireframing, and user flows.",
+      "Built and customized WordPress sites with Elementor using mobile-first, SEO-friendly layouts.",
+      "Worked on real-world projects including TheThaiger.com (news & lifestyle platform), Thaiger Deals (daily deals/e-commerce), Thaiger Property (property portal), The Thaiger mobile app, and Vikasa.com (yoga retreat).",
+      "Focused on conversion-optimized landing pages, content-to-commerce flows, mobile app feed UX, and booking/schedule funnels."
     ],
-    tools: ["WordPress", "Photoshop"],
-  },
+    projects: [
+      {
+        name: "The Thaiger (News & Lifestyle)",
+        summary:
+          "Bilingual news and lifestyle platform with web, mobile apps, and social distribution; designed mobile-first article templates, landing pages, and social/video integrations.",
+        sources: ["thethaiger.com", "thethaiger app"]
+      },
+      {
+        name: "Thaiger Deals",
+        summary:
+          "Daily-deals and e-commerce vertical; designed deal discovery pages, merchant listing flows, and conversion-focused promotional layouts.",
+        sources: ["thethaiger.com/thaiger-deals"]
+      },
+      {
+        name: "Thaiger Property",
+        summary:
+          "Property portal with advanced listings; worked on search filters, property detail UX, and inquiry-focused CTAs.",
+        sources: ["thaigerproperty.com"]
+      },
+      {
+        name: "The Thaiger App",
+        summary:
+          "Android/iOS news app; designed feed layouts, onboarding flows, and push-notification UX to improve engagement.",
+        sources: ["Google Play", "App Store"]
+      },
+      {
+        name: "Vikasa",
+        summary:
+          "Yoga retreat website; designed retreat landing pages, program schedules, instructor profiles, and booking flows for international audiences.",
+        sources: ["vikasa.com"]
+      }
+    ],
+    tools: [
+      "Figma",
+      "Adobe XD",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "WordPress",
+      "Elementor"
+    ]
+  }
 ];
+
 
 //
 // ──────────────────────────────────────────────────────────────

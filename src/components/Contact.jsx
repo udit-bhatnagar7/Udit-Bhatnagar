@@ -128,8 +128,10 @@ const Contact = () => {
           </div>
 
           {/* Bottom row */}
-          <div className="mt-10 pt-6 border-t border-white/5 text-center text-[11px] sm:text-xs text-slate-400">
-            <p>© {year} Udit Bhatnagar. All rights reserved.</p>
+          <div className="bg-[#050509] text-white pt-12 border-t border-white/10 mt-10 pt-6 border-t border-white/5 text-center text-[11px] sm:text-xs">
+            <p className="text-sm text-white/80">
+              © {year} Udit Bhatnagar. All rights reserved.
+            </p>
           </div>
         </section>
       </div>
