@@ -727,7 +727,7 @@ export const caseStudies = [
       "Dimensions of security management for modern apartment complexes, focusing on visitor tracking and resident safety.",
     role: "Product Designer",
     imageAlt: "Darbaan App Interface",
-    thumbnail: "https://picsum.photos/seed/darbaan/800/600", // Placeholder
+    thumbnail: "/images/projects/darbaan.png",
 
     problems: [
       "Manual visitor logs were insecure and hard to search.",
@@ -769,7 +769,7 @@ export const caseStudies = [
       "A platform dedicated to promoting eco-conscious travel experiences, helping travelers find sustainable destinations and activities.",
     role: "UI/UX Designer",
     imageAlt: "Safe Climate Trips Interface",
-    thumbnail: "https://picsum.photos/seed/safetrip/800/600",
+    thumbnail: "/images/projects/safe-climate-trips.png",
 
     problems: [
       "Travelers struggle to find verified eco-friendly destinations.",
@@ -820,6 +820,43 @@ export const caseStudies = [
         logoUrl: "https://www.safeclimatetrip.com/assets/SafeClimateTripLogo-sSh1H7bv.jpg",
       },
     },
+  },
+  {
+    id: "yantra-resort",
+    featured: true,
+    category: "Hospitality & Travel",
+    subtitle: "Luxury Resort Website",
+    title: "Yantra Resort – Serenity in Nature",
+    tags: ["Web Design", "Hospitality", "Booking"],
+    overview:
+      "A premium website for a luxury resort, focused on capturing the serene atmosphere and driving direct bookings.",
+    role: "Web Designer",
+    imageAlt: "Yantra Resort Homepage",
+    thumbnail: "/images/projects/yantra.png",
+
+    problems: [
+      "Low direct booking numbers due to a complex reservation flow.",
+      "Previous site didn't showcase the resort's premium amenities effectively.",
+    ],
+
+    solutions: [
+      {
+        title: "Visual Storytelling",
+        description: "Immersive full-screen imagery to showcase the property's beauty.",
+      },
+      {
+        title: "Simplified Booking",
+        description: "Streamlined booking engine integration for easier reservations.",
+      },
+    ],
+
+    seoStrategy: [],
+    impact: [
+      "Increased direct booking rate by 25%.",
+      "Longer session duration on amenities pages.",
+    ],
+    learnings:
+      "For hospitality, the digital experience must mirror the physical comfort of the resort.",
   },
 ];
 
@@ -966,7 +1003,16 @@ export const creativeWorkData = [
     description:
       "Eco-friendly travel platform interface focusing on green tourism and sustainable choices.",
     tags: ["Figma", "Web Design"],
-    thumbnail: "https://picsum.photos/seed/safetrip/800/600",
+    thumbnail: "/images/projects/safe-climate-trips.png",
+  },
+  {
+    id: "yantra-resort",
+    title: "Yantra Resort",
+    category: "Hospitality Website",
+    description:
+      "Luxury resort website design focused on visual storytelling and booking conversion.",
+    tags: ["Web Design", "UI"],
+    thumbnail: "/images/projects/yantra.png",
   },
 ];
 
