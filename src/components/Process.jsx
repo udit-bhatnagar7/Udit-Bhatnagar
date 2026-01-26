@@ -51,7 +51,7 @@ const HowIWork = () => {
 
             <p className="mt-10 text-sm sm:text-base text-slate-400 max-w-md">
               A clear, collaborative process so you always know what&apos;s
-              happening next—from first call to final delivery.
+              happening next - from first call to final delivery.
             </p>
           </div>
 

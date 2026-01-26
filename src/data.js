@@ -543,6 +543,31 @@ export const caseStudies = [
 
     learnings:
       "Integrating AI into traditional workflows requires not just technical capability but a UX that breeds trust in the machine's output.",
+    aiDetails: {
+      subheadline: "The Future of PropTech.",
+      subheadlineGradient: "from-blue-300 via-white to-purple-300",
+      features: [
+        {
+          title: "Extraction",
+          description:
+            "Advanced OCR and NLP processing to pull deep data from messy legal docs.",
+        },
+        {
+          title: "Automation",
+          description:
+            "Smart workflow triggers that syndicate listings across platforms automatically.",
+        },
+      ],
+      stats: [
+        { label: "Latency", value: "140ms", color: "text-blue-400" },
+        { label: "Accuracy", value: "99.8%", color: "text-emerald-400" },
+      ],
+      visual: {
+        label: "Neural Core v2.0",
+        title: "ML Insights Engine",
+        iconColor: "from-blue-500 to-purple-600",
+      },
+    },
   },
   {
     id: "hot-property-bazaar",
@@ -648,6 +673,153 @@ export const caseStudies = [
 
     learnings:
       "Mobile contexts require simplified flows. Speed and ease of contact are critical for mobile property seekers.",
+  },
+  {
+    id: "pragati",
+    featured: true,
+    category: "SaaS / Dashboard",
+    subtitle: "Custom CRM Interface",
+    title: "Pragati CRM – Sales Team Dashboard",
+    tags: ["Figma", "Design System", "Dashboard"],
+    overview:
+      "A custom CRM interface designed with widget-based dashboards to help sales teams track performance and manage leads efficiently.",
+    role: "UI/UX Designer",
+    imageAlt: "Pragati CRM Dashboard",
+    thumbnail: "/images/projects/pragati.png",
+
+    problems: [
+      "Sales data was scattered across multiple spreadsheets.",
+      "Team performance tracking was manual and delayed.",
+      "Lack of visual insights made decision-making difficult.",
+    ],
+
+    solutions: [
+      {
+        title: "Unified Dashboard",
+        description: "Centralized all key metrics into a single, widget-based view.",
+      },
+      {
+        title: "Visual Reporting",
+        description: "Implemented charts and graphs for instant performance analysis.",
+      },
+      {
+        title: "Lead Management Flow",
+        description: "Streamlined the process of adding and updating lead statuses.",
+      },
+    ],
+
+    seoStrategy: [],
+    impact: [
+      "Improved data visibility for management.",
+      "Reduced time spent on manual reporting.",
+    ],
+    learnings:
+      "Designing for internal tools requires a deep understanding of the specific workflows of the team using them.",
+  },
+  {
+    id: "darbaan",
+    featured: true,
+    category: "Security Management",
+    subtitle: "Gate Management System",
+    title: "Darbaan – Apartment Security Solution",
+    tags: ["Mobile App", "Security", "UX"],
+    overview:
+      "Dimensions of security management for modern apartment complexes, focusing on visitor tracking and resident safety.",
+    role: "Product Designer",
+    imageAlt: "Darbaan App Interface",
+    thumbnail: "https://picsum.photos/seed/darbaan/800/600", // Placeholder
+
+    problems: [
+      "Manual visitor logs were insecure and hard to search.",
+      "Residents had no real-time notification of guests.",
+      "Gate congestion during peak hours.",
+    ],
+
+    solutions: [
+      {
+        title: "Digital Entry Log",
+        description: "Replaced paper logs with a quick digital entry system.",
+      },
+      {
+        title: "Instant Notifications",
+        description: "App alerts for residents when visitors arrive.",
+      },
+      {
+        title: "Pre-Approval Pass",
+        description: "QR code passes for expected guests to speed up entry.",
+      },
+    ],
+
+    seoStrategy: [],
+    impact: [
+      "Enhanced security and accountability.",
+      "Reduced waiting time at the gate.",
+    ],
+    learnings:
+      "Security products need to balance strict protocols with user convenience to be adopted effectively.",
+  },
+  {
+    id: "safe-climate-trips",
+    featured: true,
+    category: "Travel & Ecology",
+    subtitle: "Eco-Friendly Travel Platform",
+    title: "Safe Climate Trips",
+    tags: ["Web Design", "Figma", "Eco-Friendly"],
+    overview:
+      "A platform dedicated to promoting eco-conscious travel experiences, helping travelers find sustainable destinations and activities.",
+    role: "UI/UX Designer",
+    imageAlt: "Safe Climate Trips Interface",
+    thumbnail: "https://picsum.photos/seed/safetrip/800/600",
+
+    problems: [
+      "Travelers struggle to find verified eco-friendly destinations.",
+      "Lack of transparency in carbon footprint data for trips.",
+    ],
+
+    solutions: [
+      {
+        title: "Green Filters",
+        description: "Search filters specifically for sustainable accommodations and activities.",
+      },
+      {
+        title: "Impact Visualizer",
+        description: "Visual cues showing the positive environmental impact of choices.",
+      },
+    ],
+
+    seoStrategy: [],
+    impact: [
+      "Increased awareness of sustainable travel options.",
+      "Connected eco-conscious travelers with verified green businesses.",
+    ],
+    learnings:
+      "Designing for sustainability requires making complex impact data easy to understand and actionable.",
+    aiDetails: {
+      subheadline: "Sustainable Travel AI.",
+      subheadlineGradient: "from-emerald-300 via-white to-teal-300",
+      features: [
+        {
+          title: "Carbon Scoring",
+          description:
+            "AI-driven algorithms calculate the exact carbon footprint of every trip leg.",
+        },
+        {
+          title: "Smart Routing",
+          description:
+            "Suggests eco-friendly alternatives for transport and accommodation in real-time.",
+        },
+      ],
+      stats: [
+        { label: "CO2 Saved", value: "125kg", color: "text-emerald-400" },
+        { label: "Accuracy", value: "95%", color: "text-teal-400" },
+      ],
+      visual: {
+        label: "Eco-Engine v1.0",
+        title: "Sustainability Core",
+        iconColor: "from-emerald-500 to-teal-600",
+        logoUrl: "https://www.safeclimatetrip.com/assets/SafeClimateTripLogo-sSh1H7bv.jpg",
+      },
+    },
   },
 ];
 
@@ -786,6 +958,15 @@ export const creativeWorkData = [
       "Corporate UI refresh with clearer content hierarchy and enquiry-driven layout.",
     tags: ["UI", "Corporate"],
     thumbnail: "/images/projects/zauco-website.png",
+  },
+  {
+    id: "safe-climate-trips",
+    title: "Safe Climate Trips",
+    category: "Web Design",
+    description:
+      "Eco-friendly travel platform interface focusing on green tourism and sustainable choices.",
+    tags: ["Figma", "Web Design"],
+    thumbnail: "https://picsum.photos/seed/safetrip/800/600",
   },
 ];
 

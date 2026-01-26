@@ -68,7 +68,7 @@ const Services = () => {
             Services &amp; Expertise
           </h2>
           <p className="text-sm sm:text-base text-slate-400">
-            From UX flows to live, SEO-friendly websites—end-to-end support for
+            From UX flows to live, SEO-friendly websites - end-to-end support for
             digital products, marketing sites, and conversion-focused experiences.
           </p>
         </motion.div>
