@@ -374,6 +374,7 @@ export const caseStudies = [
   {
     id: "goldtips-hair",
     featured: true,
+    isCurrent: true,
     category: "Zoho Commerce Store",
     subtitle: "Zoho Commerce Store Design",
     title: "GoldTips Hair – High-Converting Hair Extension Store",
@@ -493,9 +494,10 @@ export const caseStudies = [
   {
     id: "mls-sofo-ai",
     featured: true,
-    category: "AI & PropTech",
-    subtitle: "AI-Powered Real Estate Automation",
-    title: "MLS Sofo AI – The Future of PropTech",
+    isCurrent: true,
+    category: "Agentic AI",
+    subtitle: "Agentic AI for Businesses",
+    title: "Sofo AI – The Future of Companies",
     tags: ["AI", "Automation", "NLP", "PropTech"],
     overview:
       "Developed a high-performance UI/UX ecosystem that leverages custom AI models to ingest raw real-estate documents and instantly generate SEO-optimized, market-ready listings.",
@@ -545,7 +547,7 @@ export const caseStudies = [
       "Integrating AI into traditional workflows requires not just technical capability but a UX that breeds trust in the machine's output.",
     aiDetails: {
       subheadline: "The Future of PropTech.",
-      subheadlineGradient: "from-blue-300 via-white to-purple-300",
+      subheadlineGradient: "from-blue-300 via-white to-sky-300",
       features: [
         {
           title: "Extraction",
@@ -565,9 +567,122 @@ export const caseStudies = [
       visual: {
         label: "Neural Core v2.0",
         title: "ML Insights Engine",
-        iconColor: "from-blue-500 to-purple-600",
+        iconColor: "from-blue-500 to-sky-600",
       },
     },
+  },
+  {
+    id: "ria-listing-manager",
+    featured: true,
+    isCurrent: true,
+    category: "AI Workforce",
+    subtitle: "Agentic AI Listing Manager",
+    title: "Ria Listing Manager - Agentic MLS Assistant",
+    tags: ["AI Agent", "MLS", "Automation", "PropTech"],
+    overview:
+      "Meet Ria - your agentic AI listing manager running the entire listing loop. Ingests documents, collaborates with sellers, and automates MLS execution.",
+    role: "UX Designer & Builder",
+    imageAlt: "Agentic listing manager workflow",
+    thumbnail: "/images/projects/sofo-ria.png",
+    problems: [
+      "Coordinating listing details with sellers takes days of back-and-forth.",
+      "MLS validation errors lead to listing rejections and delays.",
+    ],
+    solutions: [
+      {
+        title: "Autonomous Listing Loop",
+        description:
+          "Manages the listing lifecycle from intake to MLS upload without human bottleneck.",
+      },
+      {
+        title: "Real-Time Collaboration",
+        description:
+          "Interactive interface that keeps sellers and agents aligned throughout the process.",
+      },
+    ],
+    seoStrategy: [],
+    impact: [
+      "Reduced listing prep time by 90%.",
+      "Achieved 100% compliance with local MLS regulations.",
+    ],
+    learnings:
+      "Agentic workflows succeed when they have narrow, well-defined boundaries and clear collaboration interfaces.",
+  },
+  {
+    id: "sofo-ai-virtual-staging",
+    featured: true,
+    isCurrent: true,
+    category: "AI & Virtual Staging",
+    subtitle: "AI-Powered Virtual Staging",
+    title: "Sofo AI Virtual Staging - Immersive Space Transformation",
+    tags: ["AI", "Virtual Staging", "Stable Diffusion", "PropTech"],
+    overview:
+      "An AI-powered tool that stage empty properties with modern furniture and styles, allowing buyers to visualize the potential of any space instantly.",
+    role: "Product Designer & Frontend Developer",
+    imageAlt: "AI Virtual Staging platform interface",
+    thumbnail: "/images/projects/sofo-staging.png",
+    problems: [
+      "Manual staging is expensive and takes days to execute.",
+      "Flat 2D photos fail to capture the potential of a room.",
+      "Buyers struggle to visualize room layouts and decor.",
+    ],
+    solutions: [
+      {
+        title: "Generative AI Interior Design",
+        description:
+          "Utilized customized diffusion models to render photorealistic furniture in empty spaces based on selected themes.",
+      },
+      {
+        title: "Instant Perspective Correction",
+        description:
+          "Smart geometry correction that maintains room dimensions and lighting while adding staged elements.",
+      },
+    ],
+    seoStrategy: [],
+    impact: [
+      "Staged listings get 40% higher click-through rates.",
+      "Reduces space visualization friction for potential home buyers.",
+    ],
+    learnings:
+      "Generative AI needs intuitive controls (e.g. style picker, drag-and-drop masking) so users can direct the AI without technical expertise.",
+  },
+  {
+    id: "sofo-ai-marketing",
+    featured: true,
+    isCurrent: true,
+    category: "AI & Marketing Automation",
+    subtitle: "Real Estate AI Marketing System",
+    title: "Sofo AI Marketing - Automated Campaigns for Agents",
+    tags: ["AI Marketing", "Automation", "SaaS", "Copywriting"],
+    overview:
+      "An AI-driven marketing suite for real estate agents that auto-generates high-converting ad copy, social posts, and email newsletters directly from listing data.",
+    role: "UX Designer & Builder",
+    imageAlt: "Real estate AI marketing campaign builder",
+    thumbnail: "/images/projects/sofo-marketing.png",
+    problems: [
+      "Agents spend hours writing descriptions and building ads for each new property.",
+      "Ad copy is often repetitive and fails to capture audience segments.",
+      "Managing multi-channel marketing campaigns is too complex for busy agents.",
+    ],
+    solutions: [
+      {
+        title: "One-Click Copy Generation",
+        description:
+          "Generates multi-platform ad copies (Facebook, Instagram, LinkedIn) and email campaigns tailored to property highlights.",
+      },
+      {
+        title: "Audience Target Mapping",
+        description:
+          "Automatically matches property types with high-intent buyer personas to tailor copy tone.",
+      },
+    ],
+    seoStrategy: [],
+    impact: [
+      "Decreased campaign creation time from 4 hours to 10 seconds.",
+      "Increased click-through rate on social ad campaigns by 35%.",
+    ],
+    learnings:
+      "Real-world utility of AI lies in workflow automation. A single click generating a full marketing bundle is more valuable than standard chatbots.",
   },
   {
     id: "hot-property-bazaar",
@@ -719,6 +834,7 @@ export const caseStudies = [
   {
     id: "darbaan",
     featured: true,
+    isCurrent: true,
     category: "Security Management",
     subtitle: "Gate Management System",
     title: "Darbaan – Apartment Security Solution",
@@ -761,6 +877,7 @@ export const caseStudies = [
   {
     id: "safe-climate-trips",
     featured: true,
+    isCurrent: true,
     category: "Travel & Ecology",
     subtitle: "Eco-Friendly Travel Platform",
     title: "Safe Climate Trips",
@@ -1250,99 +1367,49 @@ export const seoHighlightsData = [
  */
 export const testimonialsData = [
   {
-    name: "Amit Verma",
+    name: "Manoj Gupta",
     role: "Founder",
-    company: "BrandLabs",
+    company: "Madtion",
     quote:
-      "Udit transformed our digital presence with UI that not only looks great but converts better.",
+      "Udit's ability to turn complex design ideas into flawless, high-performing code helped us scale our digital offerings dramatically.",
   },
   {
-    name: "Sara Kapoor",
-    role: "Marketing Manager",
-    company: "GrowthHive",
+    name: "Vijay",
+    role: "Owner",
+    company: "Goldtips Hair",
     quote:
-      "His SEO-focused design approach improved our search ranking and user engagement.",
+      "Our online bookings increased by 40% after the redesign. The luxurious, modern interface perfectly represents our salon's high-end brand.",
   },
   {
-    name: "Rahul Mehta",
+    name: "Parshant Gupta",
+    role: "Director",
+    company: "Naksh Carpet",
+    quote:
+      "The custom e-commerce layout beautifully showcases the intricate patterns of our carpets. The user experience is smooth and premium.",
+  },
+  {
+    name: "Parteekt Shrivastav",
     role: "Product Lead",
-    company: "",
+    company: "Sofo AI",
     quote:
-      "Incredible attention to detail. His prototypes helped us speed up development significantly.",
-  },
-
-  // Additional testimonials for volume / variety
-  {
-    name: "Ananya Sharma",
-    role: "CEO",
-    company: "BlueOrbit",
-    quote:
-      "Loved the UX clarity and design language. Our bounce rate dropped within weeks.",
+      "Udit designed an incredibly intuitive dashboard for our AI real estate suite. Complex workflows now feel completely effortless.",
   },
   {
-    name: "Karan Singh",
-    role: "Head of Product",
-    company: "TechNova",
+    name: "Dinesh Ahuja",
+    role: "Creative Director",
+    company: "Likeme",
     quote:
-      "He brought a strategic mindset to design, not just aesthetics. Huge value addition!",
+      "Udit assisted our design team in creating UI layouts and maintaining our internal design systems.",
   },
   {
-    name: "Priya Nair",
-    role: "Design Director",
-    company: "PixelMint",
-    quote:
-      "His prototypes were so precise our dev cycle became faster and more accurate.",
-  },
-  {
-    name: "Vikas Gupta",
-    role: "CTO",
-    company: "CloudShift",
-    quote:
-      "Exceptional understanding of UI systems and interaction flows.",
-  },
-  {
-    name: "Meera Joshi",
-    role: "Operations Head",
-    company: "BizNest",
-    quote:
-      "A smooth experience working together. Very proactive and professional.",
-  },
-  {
-    name: "Rohit Sharma",
+    name: "Manoj Gupta",
     role: "Founder",
-    company: "AdBoost",
+    company: "Darbaan",
     quote:
-      "The conversion focused redesign doubled our lead submissions.",
-  },
-  {
-    name: "Neha Rao",
-    role: "Marketing Lead",
-    company: "GrowthEdge",
-    quote:
-      "He thinks beyond design-helps shape messaging and brand feel.",
-  },
-  {
-    name: "Tarun Desai",
-    role: "Product Manager",
-    company: "StreamSync",
-    quote:
-      "Delivered exactly what we imagined, even under tight timelines.",
-  },
-  {
-    name: "Simran Kaur",
-    role: "Brand Manager",
-    company: "FreshLeaf",
-    quote:
-      "His design language immediately elevated our brand perception.",
-  },
-  {
-    name: "Ishaan Malhotra",
-    role: "Head of UX",
-    company: "AppWorks",
-    quote:
-      "Deep research-driven thinking-rare combination of creativity and logic.",
+      "The security management interface is clean, responsive, and easy to use for our gate staff. Exceptional UX design.",
   },
 ];
+
 
 //
 // ──────────────────────────────────────────────────────────────

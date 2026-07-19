@@ -61,10 +61,11 @@ const Services = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-start max-w-2xl mb-14"
         >
-          <p className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             What I Do
-          </p>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
+          </span>
+          <h2 className="text-3xl md:text-4xl font-sans font-black text-white mb-3">
             Services &amp; Expertise
           </h2>
           <p className="text-sm sm:text-base text-slate-400">
@@ -87,7 +88,7 @@ const Services = () => {
               variants={cardVariants}
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="relative group overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col gap-4"
+              className="relative group overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col gap-4 h-full"
             >
               {/* top gradient bar */}
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-blue-500 via-sky-400 to-purple-500 opacity-80" />

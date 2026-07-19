@@ -1,51 +1,23 @@
-// components/CaseStudy.jsx
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { caseStudies as allCaseStudies } from "../data";
 import { ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const CaseStudy = () => {
-  const caseStudies = allCaseStudies.filter((study) =>
-    ["likeme", "pragati", "darbaan", "goldtips-hair", "naksh-carpet"].includes(
-      study.id
-    )
-  );
+  const ids = [
+    "mls-sofo-ai",
+    "ria-listing-manager",
+    "sofo-ai-virtual-staging",
+    "sofo-ai-marketing",
+    "darbaan",
+    "safe-climate-trips",
+    "goldtips-hair"
+  ];
+  const caseStudies = ids
+    .map(id => allCaseStudies.find(study => study.id === id))
+    .filter(Boolean);
 
   if (!caseStudies?.length) return null;
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const sentinelRefs = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const idx = Number(entry.target.dataset.index);
-          if (!Number.isNaN(idx)) {
-            setActiveIndex(idx);
-          }
-        });
-      },
-      {
-        threshold: 0.6,
-      }
-    );
-
-    sentinelRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  const active = caseStudies[activeIndex];
-
-  const previous = caseStudies.slice(0, activeIndex);
-
-  const stackedPrevious =
-    previous.length <= 6
-      ? previous
-      : previous.slice(previous.length - 3);
-
-  const hasPrevious = stackedPrevious.length > 0;
 
   return (
     <section
@@ -54,186 +26,81 @@ const CaseStudy = () => {
     >
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-10"
-        >
-          <p className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
+        <div className="mb-16">
+          <p className="text-[11px] font-semibold tracking-[0.25em] text-indigo-400 uppercase mb-3">
             Case Studies
           </p>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-2">
+          <h2 className="text-3xl sm:text-4xl font-sans font-black text-white mb-2">
             Selected Works – In Depth
           </h2>
           <p className="text-sm sm:text-base text-slate-400 max-w-xl">
-            Scroll through the stack  each project smoothly takes over the main
-            card while previous ones glide into the header.
+            Scroll down to explore each project stack. Cards overlay naturally, mimicking high-end Framer interactions.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Sticky stack + main card */}
-        <div className="sticky top-20 z-30 mb-24">
-          {/* STACKED PREVIOUS */}
-          <motion.div
-            className="relative mb-6"
-            initial={false}
-            animate={{
-              height: hasPrevious ? 220 : 0,
-              opacity: hasPrevious ? 1 : 0,
-              marginBottom: hasPrevious ? 24 : 0,
-            }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-          >
-            <AnimatePresence>
-              {stackedPrevious.map((study, idxFromEnd) => {
-                const totalPrev = stackedPrevious.length;
-                const indexInStack = totalPrev - 1 - idxFromEnd;
-                const offset = indexInStack * 34;
+        {/* Sticky Stacked Container */}
+        <div className="relative flex flex-col gap-12 w-full mx-auto">
+          {caseStudies.map((study, index) => {
+            // Sticky top offset increases slightly per card to show stack depth
+            const topOffset = 80 + index * 16; 
 
-                return (
-                  <motion.div
-                    key={study.id}
-                    layout
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 140,
-                      damping: 18,
-                    }}
-                    className="absolute inset-x-0"
-                    style={{ top: `${offset}px`, zIndex: 10 + indexInStack }}
-                  >
-                    <div className="flex items-stretch rounded-t-3xl rounded-b-2xl overflow-hidden bg-[#07101e] border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.6)] h-[150px]">
-                      {/* mini image strip */}
-                      <div className="overflow-hidden">
-                        <img
-                          src={
-                            study.thumbnail ||
-                            `https://picsum.photos/seed/${study.id}/400/260`
-                          }
-                          alt={study.imageAlt || study.title}
-                          className="h-full w-[312px] max-w-[312px] object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-
-                      {/* text */}
-                      <div className="flex-1 flex items-center justify-between px-4 sm:px-6">
-                        <div className="min-w-0">
-                          {study.subtitle && (
-                            <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-slate-400 mb-0.5 truncate">
-                              {study.subtitle}
-                            </p>
-                          )}
-                          <p className="text-xs sm:text-sm font-medium text-slate-100 truncate">
-                            {study.title}
-                          </p>
-                        </div>
-                        {study.tags?.[0] && (
-                          <span className="hidden sm:inline-block px-3 py-1 rounded-full text-[9px] uppercase tracking-[0.18em] bg-white/5 text-slate-100 border border-white/15">
-                            {study.tags[0]}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
-          </motion.div>
-
-          {/* MAIN BIG CARD */}
-          <motion.div
-            layout
-            transition={{
-              type: "spring",
-              stiffness: 120,
-              damping: 20,
-            }}
-            className="relative rounded-[32px] overflow-hidden"
-          >
-            {/* glowing backdrop */}
-            <motion.div
-              layout
-              className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-purple-500/25 to-slate-900/40 blur-xl opacity-60"
-            />
-
-            <div className="relative rounded-[30px] bg-gradient-to-r from-[#07101e] via-[#050c18] to-[#020712] border border-white/10 shadow-[0_28px_80px_rgba(0,0,0,0.85)] overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active.id}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 130,
-                    damping: 22,
-                  }}
-                  className="flex flex-col md:flex-row"
-                >
-                  {/* image side */}
-                  <motion.div
-                    key={`img-${active.id}`}
-                    initial={{ scale: 1.03 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 1.02, opacity: 0 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 130,
-                      damping: 22,
-                    }}
-                    className="md:w-5/12 bg-slate-900/40 relative"
-                  >
-                    <div className="absolute -inset-10 bg-gradient-to-br from-blue-500/30 via-transparent to-purple-500/30 blur-3xl opacity-60 pointer-events-none" />
+            return (
+              <motion.div
+                key={study.id}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                style={{ top: `${topOffset}px` }}
+                className="sticky rounded-[30px] bg-gradient-to-r from-[#07101e] via-[#050c18] to-[#020712] border border-white/10 shadow-[0_28px_80px_rgba(0,0,0,0.85)] overflow-hidden mb-12 h-auto md:h-[420px]"
+              >
+                <div className="flex flex-col md:flex-row h-full">
+                  {/* Image Side */}
+                  <div className="md:w-5/12 bg-slate-900/40 relative min-h-[320px] md:h-full">
+                    <div className="absolute -inset-10 bg-gradient-to-br from-blue-500/20 via-transparent to-sky-500/10 blur-3xl opacity-60 pointer-events-none" />
                     <div className="p-4 sm:p-6 h-full relative">
-                      <div className="w-full h-full rounded-3xl overflow-hidden bg-slate-800/70 border border-white/10">
+                      <div className="w-full h-full rounded-3xl overflow-hidden bg-slate-800/70 border border-white/10 aspect-[4/3] md:aspect-auto md:h-full">
                         <img
-                          src={
-                            active.thumbnail ||
-                            `https://picsum.photos/seed/${active.id}/800/600`
-                          }
-                          alt={active.imageAlt || active.title}
-                          className="w-full h-full object-cover"
+                          src={study.thumbnail || `https://picsum.photos/seed/${study.id}/800/600`}
+                          alt={study.imageAlt || study.title}
+                          width="800"
+                          height="600"
+                          className="w-full h-full object-cover object-bottom"
                           loading="lazy"
                         />
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
 
-                  {/* content side */}
-                  <div className="md:w-7/12 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+                  {/* Content Side */}
+                  <div className="md:w-7/12 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[320px] md:h-full">
                     <div>
                       <div className="flex flex-wrap items-center gap-3 mb-3">
-                        {active.subtitle && (
+                        {study.subtitle && (
                           <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-slate-400">
-                            {active.subtitle}
+                            {study.subtitle}
                           </p>
                         )}
-                        {active.category && (
+                        {study.category && (
                           <span className="px-3 py-1 rounded-full text-[10px] uppercase tracking-[0.18em] bg-white/5 text-slate-100 border border-white/15">
-                            {active.category}
+                            {study.category}
                           </span>
                         )}
                       </div>
 
-                      <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-3">
-                        {active.title}
+                      <h3 className="text-2xl sm:text-3xl font-sans font-black text-white mb-3">
+                        {study.title}
                       </h3>
 
-                      {active.overview && (
+                      {study.overview && (
                         <p className="text-sm sm:text-base text-slate-300 mb-4 max-w-xl">
-                          {active.overview}
+                          {study.overview}
                         </p>
                       )}
 
-                      {active.tags && (
+                      {study.tags && (
                         <div className="flex flex-wrap gap-2 mb-5">
-                          {active.tags.map((tag) => (
+                          {study.tags.map((tag) => (
                             <span
                               key={tag}
                               className="px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] bg-white/5 text-slate-100 border border-white/15"
@@ -244,14 +111,14 @@ const CaseStudy = () => {
                         </div>
                       )}
 
-                      {active.role && (
-                        <div className="inline-flex items-center px-3 py-2 rounded-full bg.white/10 border border.white/15 text-[10px] uppercase tracking-[0.18em] text-slate-200 mb-1">
-                          {active.role}
+                      {study.role && (
+                        <div className="inline-flex items-center px-3 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-[0.18em] text-slate-200 mb-1">
+                          {study.role}
                         </div>
                       )}
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-4 mt-4">
+                    <div className="flex flex-wrap items-center gap-4 mt-6">
                       <button
                         type="button"
                         className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-slate-900 text-xs sm:text-sm font-semibold tracking-wide hover:bg-slate-100 transition-colors"
@@ -261,22 +128,10 @@ const CaseStudy = () => {
                       </button>
                     </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* SCROLL SENTINELS */}
-        <div className="mt-10">
-          {caseStudies.map((study, index) => (
-            <div
-              key={study.id}
-              ref={(el) => (sentinelRefs.current[index] = el)}
-              data-index={index}
-              className="h-[100vh]"
-            />
-          ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

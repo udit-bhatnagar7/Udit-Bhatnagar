@@ -24,10 +24,11 @@ const CreativeWork = () => {
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Section Heading */}
         <div className="text-start mb-14">
-          <h3 className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             Visuals
-          </h3>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-sans font-black text-white">
             Creative Showcase
           </h2>
           <p className="text-sm sm:text-base text-slate-400 mt-4 max-w-2xl">
@@ -73,6 +74,8 @@ const CreativeWork = () => {
                           : `https://picsum.photos/seed/${item.title + index}/800/600`
                       }
                       alt={item.title}
+                      width="420"
+                      height="240"
                       className="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
                       loading="lazy"
                     />

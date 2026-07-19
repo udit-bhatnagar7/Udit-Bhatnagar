@@ -46,10 +46,11 @@ const Skills = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-12"
         >
-          <p className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             My Arsenal
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-sans font-black text-white">
             Expertise &amp; Tools
           </h2>
           <p className="text-sm text-slate-400 mt-3 max-w-xl">
@@ -72,7 +73,7 @@ const Skills = () => {
               variants={cardVariants}
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col gap-4"
+              className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col gap-4 h-full"
             >
               {/* subtle top accent bar */}
               <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-blue-500 via-sky-400 to-purple-500 opacity-80" />
@@ -96,7 +97,7 @@ const Skills = () => {
                 {category.skills.map((skill, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 rounded-full text-[11px] font-medium text-slate-100 bg-white/5 border border-white/10 hover:border-blue-400/70 hover:bg-blue-500/10 transition-colors"
+                    className="px-3 py-1 rounded-full text-[11px] font-medium text-white bg-white/5 border border-white/10 hover:border-blue-400/70 hover:bg-blue-500/10 transition-colors"
                   >
                     {skill}
                   </span>

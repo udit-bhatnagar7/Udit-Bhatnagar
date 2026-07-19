@@ -10,8 +10,6 @@ const CaseStudy = React.lazy(() => import('../components/CaseStudy'));
 const Testimonials = React.lazy(() => import('../components/Testimonials'));
 const Skills = React.lazy(() => import('../components/Skills'));
 const Experience = React.lazy(() => import('../components/Experience'));
-const AISpotlight = React.lazy(() => import('../components/AISpotlight'));
-const SEOHighlights = React.lazy(() => import('../components/SEOHighlights'));
 const CreativeWork = React.lazy(() => import('../components/CreativeWork'));
 const DesignGallery = React.lazy(() => import('../components/DesignGallery'));
 const FAQ = React.lazy(() => import('../components/FAQ'));
@@ -43,9 +41,6 @@ const Home = () => {
                     {/* 4️⃣ Proof of work */}
                     <ProjectHighlights />
 
-                    {/* 8️⃣ Differentiation */}
-                    <AISpotlight />
-
                     <CaseStudy />
 
                     {/* 5️⃣ Social proof */}
@@ -56,9 +51,6 @@ const Home = () => {
 
                     {/* 7️⃣ Background & experience */}
                     <Experience />
-
-                    {/* 9️⃣ Optional performance proof */}
-                    <SEOHighlights />
 
                     {/* 🔟 Visual / creative credibility */}
                     <CreativeWork />

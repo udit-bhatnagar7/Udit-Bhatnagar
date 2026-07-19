@@ -51,10 +51,11 @@ const Team = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <p className="text-[11px] uppercase tracking-[0.3em] text-blue-400 mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm mx-auto">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             Team
-          </p>
-          <h2 className="text-4xl md:text-6xl font-serif font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
+          </span>
+          <h2 className="text-4xl md:text-6xl font-sans font-black text-white">
             The people behind the magic
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto mt-4">
@@ -76,6 +77,9 @@ const Team = () => {
               <div className="relative overflow-hidden h-56">
                 <img
                   src={member.img}
+                  width="400"
+                  height="300"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-110"
                   alt={member.name}
                 />

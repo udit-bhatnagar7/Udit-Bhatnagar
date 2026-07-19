@@ -19,10 +19,11 @@ const FAQ = () => {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="text-start mb-16">
-                    <p className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
                         Common Queries
-                    </p>
-                    <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-4">
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl font-sans font-black text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <p className="text-sm sm:text-base text-slate-400 max-w-xl">
@@ -49,6 +50,7 @@ const FAQ = () => {
                                 <button
                                     onClick={() => toggleFAQ(index)}
                                     className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                                    aria-expanded={isOpen}
                                 >
                                     <span className={`text-base sm:text-lg font-medium transition-colors ${isOpen ? "text-white" : "text-slate-200"}`}>
                                         {item.question}

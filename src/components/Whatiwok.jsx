@@ -81,10 +81,11 @@ const Stack = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-10 max-w-3xl"
         >
-          <p className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             What I work with
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-3">
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-sans font-black text-white mb-3">
             Tools I use to design, build &amp; ship.
           </h2>
           <p className="text-sm sm:text-base text-slate-400 mb-4">
@@ -117,7 +118,7 @@ const Stack = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="grid md:grid-cols-2 gap-7"
         >
-          {groups.map((group, index) => (
+          {groups.map((group) => (
             <motion.div
               key={group.label}
               variants={cardVariants}
@@ -155,7 +156,7 @@ const Stack = () => {
                 {group.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="px-3 py-1 rounded-full text-[11px] font-medium text-slate-100 bg-white/5 border border-white/10 hover:border-blue-400/70 hover:bg-blue-500/10 transition-colors"
+                    className="px-3 py-1 rounded-full text-[11px] font-medium text-white bg-white/5 border border-white/10 hover:border-blue-400/70 hover:bg-blue-500/10 transition-colors"
                   >
                     {tool}
                   </span>

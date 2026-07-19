@@ -1,61 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import {
-  ArrowRight,
-  Mail,
-  Phone,
-  Linkedin,
-  Code2,
-  Palette,
-  Globe,
-  Sparkles,
-  Download,
-  Award,
-  Briefcase,
-  Zap,
-} from "lucide-react";
-// Update imports to include data arrays
-import {
-  personalInfo,
-  creativeWorkData,
-  testimonialsData,
-  skillsData,
-  experienceData
-} from "../data";
+import { ArrowRight, Mail, Linkedin } from "lucide-react";
+import { personalInfo } from "../data";
+// eslint-disable-next-line no-unused-vars
 import { m, AnimatePresence } from "framer-motion";
-
-// Helper to calculate experience
-const startYear = 2019; // Based on experienceData
-const currentYear = new Date().getFullYear();
-const experienceYears = currentYear - startYear;
-
-// Helper to count skills
-const totalSkills = skillsData.reduce((acc, cat) => acc + cat.skills.length, 0);
-
-const floatingSkillVariants = {
-  float: (delay = 0) => ({
-    y: [0, -8, 0],
-    opacity: [0.85, 1, 0.85],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay,
-    },
-  }),
-};
-
-
+import HeroAvatar from "./HeroAvatar";
+import StatsStrip from "./StatsStrip";
 
 const roles = [
-  "UI/UX Designer",
-  "Web Designer",
-  "SEO Strategist",
-  "AI-Assisted Creative",
+  "Product Designer",
+  "Frontend Engineer",
+  "React · Tailwind · TypeScript",
+  "Design Systems",
 ];
 
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
+  const heroRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(
@@ -65,259 +26,179 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!heroRef.current) return;
+      const rect = heroRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      heroRef.current.style.setProperty("--mouse-x", `${x}px`);
+      heroRef.current.style.setProperty("--mouse-y", `${y}px`);
+    };
+    
+    const el = heroRef.current;
+    if (el) {
+      el.addEventListener("mousemove", handleMouseMove);
+    }
+    return () => {
+      if (el) {
+        el.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, []);
+
   return (
     <section
+      ref={heroRef}
       id="hero"
-      className="min-h-screen w-full bg-[#050509] text-white flex items-center"
+      className="min-h-screen w-full bg-[#050509] text-white flex items-center relative overflow-hidden py-24"
       aria-label="Hero section introducing Udit Bhatnagar"
     >
-      <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col items-center text-center">
-        {/* Available for Work Badge */}
-        <m.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-2 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/20 bg-emerald-950/30 text-emerald-400 text-xs font-medium tracking-wide shadow-lg shadow-emerald-500/10 backdrop-blur-sm"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          Available for Work
-        </m.div>
+      {/* Ambient Aurora Glows & Grid Mesh */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Spotlight Radial Glow following cursor */}
+        <div 
+          className="absolute inset-0 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.06), transparent 80%)`
+          }}
+        />
+        
+        {/* Secondary ambient glows */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 blur-[130px] rounded-full" />
+        <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-indigo-500/5 blur-[110px] rounded-full animate-pulse" style={{ animationDuration: "10s" }} />
+        
+        {/* Dynamic spotlight grid dots */}
+        <div 
+          className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:24px_24px]"
+          style={{
+            WebkitMaskImage: `radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black, transparent)`,
+            maskImage: `radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black, transparent)`
+          }}
+        />
+        {/* Stationary base dim grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff03_1px,transparent_1px)] [background-size:24px_24px] opacity-50" />
+      </div>
 
-        {/* small label */}
-        {/* <m.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="mb-3 text-[11px] tracking-[0.25em] uppercase text-slate-400"
-        >
-          UI/UX • Web Design • SEO • AI
-        </m.div> */}
+      <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+          
+          {/* Left Column: Text Content */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left w-full">
 
-        {/* Name */}
-        <m.h1
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px] font-black tracking-tight leading-none mb-3"
-        >
-          {personalInfo.name.toUpperCase()}
-        </m.h1>
+            {/* Name & Title */}
+            <m.h1
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight text-white mb-2"
+            >
+              {personalInfo.name}
+            </m.h1>
+            
+            <m.h2
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight pb-2 mb-3 text-slate-300"
+            >
+              Designer & Developer
+            </m.h2>
 
-        {/* Animated role line */}
-        <m.div
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex items-center justify-center mb-6"
-        >
-          <span className="text-[11px] uppercase tracking-[0.25em] text-slate-400 mr-3">
-            ROLE
-          </span>
-          <div className="h-5 overflow-hidden">
-            <AnimatePresence mode="wait">
-              <m.span
-                key={roles[roleIndex]}
-                initial={{ y: 18, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -18, opacity: 0 }}
-                transition={{ duration: 0.35 }}
-                className="block text-xs sm:text-sm font-semibold text-slate-100"
+            {/* Specialization slideshow */}
+            <m.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="flex items-center mb-6"
+            >
+              <span className="text-[10px] uppercase tracking-[0.25em] text-slate-500 mr-3 font-bold">
+                Specialization
+              </span>
+              <div className="h-5 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <m.span
+                    key={roles[roleIndex]}
+                    initial={{ y: 18, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -18, opacity: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="block text-xs sm:text-sm font-semibold text-slate-300"
+                  >
+                    {roles[roleIndex]}
+                  </m.span>
+                </AnimatePresence>
+              </div>
+            </m.div>
+
+            {/* Tagline Description */}
+            <m.p
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8 max-w-lg"
+            >
+              {personalInfo.tagline}
+            </m.p>
+
+            {/* Action Buttons */}
+            <m.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="flex flex-row items-center gap-4 mb-6"
+            >
+              <a
+                href="#contact-section"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-slate-950 text-sm font-semibold tracking-wide hover:bg-slate-200 transition-colors shadow-lg hover:shadow-white/5"
               >
-                {roles[roleIndex]}
-              </m.span>
-            </AnimatePresence>
-          </div>
-        </m.div>
+                Get in Touch
+                <ArrowRight size={15} className="ml-2" />
+              </a>
 
-        {/* Image + floating skills */}
-        <m.div
-          initial={{ opacity: 0, scale: 0.9, y: 8 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative mb-8 flex justify-center"
-        >
-          <div className="relative w-[220px] h-[220px] sm:w-[310px] sm:h-[310px] md:w-[350px] md:h-[350px] mx-auto">
-            {/* glow */}
-            <div className="absolute -inset-8 bg-gradient-to-b from-red-500/40 via-transparent to-purple-500/30 blur-3xl -z-10" />
+              <Link
+                to="/resume"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white/5 border border-white/10 text-slate-200 text-sm font-semibold tracking-wide hover:bg-white/10 transition-all"
+              >
+                View Resume
+              </Link>
+            </m.div>
 
-            <img
-              src={personalInfo.photoUrl || "/images/udit-profile.jpg"}
-              alt={`${personalInfo.name} – UI/UX & Web Designer`}
-              className="w-full h-full object-cover rounded-full shadow-2xl"
-            // Removed loading="lazy" for LCP optimization
-            />
-          </div>
+            {/* Contact details */}
+            <m.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-wrap gap-5 text-xs sm:text-sm font-medium text-slate-400"
+            >
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Mail size={14} />
+                <span>{personalInfo.email}</span>
+              </a>
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Linkedin size={14} />
+                <span>LinkedIn</span>
+              </a>
+            </m.div>
 
-          {/* floating skill pills */}
-          <m.div
-            className="hidden sm:flex items-center gap-1 px-3 py-1.5 text-[11px] rounded-full bg-white/5 border border-white/10 absolute -top-3 -left-4"
-            variants={floatingSkillVariants}
-            animate="float"
-            custom={0.2}
-          >
-            <Code2 size={12} />
-            <span>HTML · CSS · Tailwind</span>
-          </m.div>
-
-          <m.div
-            className="hidden sm:flex items-center gap-1 px-3 py-1.5 text-[11px] rounded-full bg-white/5 border border-white/10 absolute top-5 -right-10"
-            variants={floatingSkillVariants}
-            animate="float"
-            custom={0.5}
-          >
-            <Palette size={12} />
-            <span>Figma · UI/UX</span>
-          </m.div>
-
-          <m.div
-            className="hidden sm:flex items-center gap-1 px-3 py-1.5 text-[11px] rounded-full bg-white/5 border border-white/10 absolute bottom-2 -left-8"
-            variants={floatingSkillVariants}
-            animate="float"
-            custom={0.8}
-          >
-            <Globe size={12} />
-            <span>SEO · Landing Pages</span>
-          </m.div>
-
-          <m.div
-            className="hidden sm:flex items-center gap-1 px-3 py-1.5 text-[11px] rounded-full bg-blue-600/90 border border-blue-400/60 absolute bottom-4 -right-6"
-            variants={floatingSkillVariants}
-            animate="float"
-            custom={1.1}
-          >
-            <Sparkles size={12} />
-            <span>AI Tools · ChatGPT</span>
-          </m.div>
-        </m.div>
-
-        {/* Tagline */}
-        {/* <m.p
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="max-w-2xl mx-auto text-sm sm:text-base text-slate-400 mb-8 leading-relaxed"
-        >
-          {personalInfo.tagline}
-        </m.p> */}
-
-        {/* CTAs */}
-        <m.div
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.34 }}
-          className="flex flex-col sm:flex-row items-center gap-4 mb-8"
-        >
-          {/* <a
-            href="#projects"
-            className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-slate-950 text-sm font-semibold tracking-wide hover:bg-slate-200 transition-colors"
-          >
-            View Selected Work
-            <ArrowRight size={16} className="ml-2" />
-          </a> */}
-
-          <Link
-            to="/resume"
-            className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/20 bg-white/5 text-white text-sm font-semibold tracking-wide hover:bg-white/10 transition-colors backdrop-blur-sm"
-          >
-            View Resume
-            <Download size={16} className="ml-2" />
-          </Link>
-
-          <a
-            href="#contact-section"
-            className="text-sm text-slate-300 hover:text-white underline-offset-4 hover:underline"
-          >
-            Let&apos;s discuss your project
-          </a>
-        </m.div>
-
-        {/* Contact row */}
-        <m.div
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.38 }}
-          className="flex flex-wrap justify-center gap-5 text-xs sm:text-sm font-medium text-slate-400"
-        >
-          <a
-            href={`tel:${personalInfo.phone}`}
-            className="flex items-center gap-2 hover:text-white transition-colors"
-          >
-            <Phone size={14} />
-            <span>{personalInfo.phone}</span>
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="flex items-center gap-2 hover:text-white transition-colors"
-          >
-            <Mail size={14} />
-            <span>{personalInfo.email}</span>
-          </a>
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-white transition-colors"
-          >
-            <Linkedin size={14} />
-            <span>LinkedIn</span>
-          </a>
-        </m.div>
-
-        {/* Stats Section */}
-        <m.div
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.42 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto mt-16 w-full px-4"
-        >
-          {/* Experience */}
-          <div className="p-6 rounded-xl bg-white/5 border border-white/5 flex flex-row items-center gap-4">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-lg group-hover:scale-110 transition-transform duration-300">
-              <Award size={24} />
-            </div>
-            <div className="text-start">
-              <div className="text-3xl font-bold text-white mb-1">
-                3+
-              </div>
-              <div className="text-slate-400 text-xs font-medium uppercase tracking-wide">
-                Years Experience
-              </div>
-            </div>
+            {/* Stats section inline */}
+            <StatsStrip />
           </div>
 
-          {/* Projects */}
-          <div className="p-6 rounded-xl bg-white/5 border border-white/5 flex flex-row items-center gap-4">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-lg group-hover:scale-110 transition-transform duration-300">
-              <Briefcase size={24} />
-            </div>
-            <div className="text-start">
-              <div className="text-3xl font-bold text-white mb-1">
-                15+
-              </div>
-              <div className="text-slate-400 text-xs font-medium uppercase tracking-wide">
-                Projects Done
-              </div>
-            </div>
+          {/* Right Column: HeroAvatar Portrait */}
+          <div className="lg:col-span-5 flex justify-center w-full relative">
+            <HeroAvatar />
           </div>
 
-          {/* Clients */}
-          <div className="p-6 rounded-xl bg-white/5 border border-white/5 flex flex-row items-center gap-4">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500/10 text-blue-400 rounded-lg group-hover:scale-110 transition-transform duration-300">
-              <Globe size={24} />
-            </div>
-            <div className="text-start">
-              <div className="text-3xl font-bold text-white mb-1">
-                2+
-              </div>
-              <div className="text-slate-400 text-xs font-medium uppercase tracking-wide">
-                Happy Clients
-              </div>
-            </div>
-          </div>
-        </m.div>
+        </div>
       </div>
     </section>
   );

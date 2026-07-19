@@ -31,7 +31,7 @@ const FullGallery = () => {
                                 <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                                 Back to Home
                             </Link>
-                            <h1 className="text-4xl md:text-6xl font-serif font-bold text-white">
+                            <h1 className="text-4xl md:text-6xl font-sans font-black text-white">
                                 Full Design Gallery
                             </h1>
                             <p className="text-slate-400 mt-4 max-w-2xl">
@@ -54,6 +54,8 @@ const FullGallery = () => {
                                 <img
                                     src={item.image}
                                     alt={item.title}
+                                    width="400"
+                                    height="300"
                                     className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                                     loading="lazy"
                                 />

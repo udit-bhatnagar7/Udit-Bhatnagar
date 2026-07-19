@@ -14,10 +14,11 @@ const Experience = () => {
         {/* Header */}
         {/* Section Header */}
         <div className="text-start mb-16">
-          <h3 className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             My Journey
-          </h3>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-sans font-black text-white">
             Professional Experience
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-400 max-w-2xl">

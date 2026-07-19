@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Linkedin, Phone, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { personalInfo } from "../data";
 
 const Contact = () => {
@@ -8,133 +8,81 @@ const Contact = () => {
   return (
     <footer
       id="contact-section"
-      className="bg-[#050509] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden"
+      className="bg-[#050509] text-white pt-20 pb-10 border-t border-white/10 relative overflow-hidden"
     >
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-20">
-        {/* TOP CTA STRIP */}
-        <section className="grid lg:grid-cols-2 gap-14 items-center">
-          {/* Left: big text */}
-          <div>
-            <h2 className="font-black leading-none tracking-tight text-left">
-              <span className="block text-[40px] sm:text-[60px] md:text-[80px] lg:text-[96px] text-white">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-16">
+          {/* Left: Heading, Description & CTA */}
+          <div className="lg:col-span-7 space-y-6">
+            <h2 className="font-black leading-none tracking-tight">
+              <span className="block text-[40px] sm:text-[54px] md:text-[64px] lg:text-[72px] text-white">
                 LET&apos;S WORK
               </span>
-              <span className="block text-[40px] sm:text-[60px] md:text-[80px] lg:text-[96px] text-slate-200">
+              <span className="block text-[40px] sm:text-[54px] md:text-[64px] lg:text-[72px] text-slate-400">
                 TOGETHER
               </span>
             </h2>
 
-          </div>
-
-          {/* Right: copy + CTA */}
-          <div className="flex flex-col items-start lg:items-end gap-8 text-left lg:text-right">
-            <p className="text-sm sm:text-base text-slate-300 max-w-md">
-              Have a product, website or idea you want to ship? I help teams
-              with UX, UI, web design and front-end execution from idea to live
-              experience.
+            <p className="text-sm sm:text-base text-slate-400 max-w-lg leading-relaxed">
+              Have a product, website or idea you want to ship? I help early-stage SaaS founders with UX, UI, web design and front-end execution from idea to live experience.
             </p>
 
-            <div className="flex flex-col items-stretch lg:items-end gap-4 w-full max-w-md">
-              {/* Primary CTA */}
+            <div className="pt-2">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="inline-flex items-center justify-center rounded-full px-10 py-4 text-sm font-semibold tracking-wide uppercase bg-gradient-to-r from-[#ff4b2b] to-[#ff7b00] hover:from-[#ff5b3a] hover:to-[#ff8b1a] transition-all shadow-[0_18px_45px_rgba(0,0,0,0.7)]"
+                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold tracking-wide uppercase bg-[#6366F1] hover:bg-[#4f46e5] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_12px_30px_rgba(99,102,241,0.2)]"
               >
                 Get in touch
-                <ArrowRight size={18} className="ml-2" />
+                <ArrowRight size={16} className="ml-2" />
               </a>
-
-              {/* Quick contact row */}
-              <div className="flex flex-col sm:flex-row gap-4 text-xs sm:text-sm text-slate-300">
-                <a
-                  href={`tel:${personalInfo.phone}`}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
-                >
-                  <Phone size={14} />
-                  <span>{personalInfo.phone}</span>
-                </a>
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 hover:text-white transition-colors"
-                >
-                  <Linkedin size={14} />
-                  <span>LinkedIn</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* BOTTOM FOOTER */}
-        <section className="border-t border-white/10 pt-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Left: big name in background */}
-            <div className="relative overflow-hidden">
-              <div className="relative">
-                <span className="block text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-white leading-none select-none">
-                  Udit
-                </span>
-                <span className="block -mt-3 text-[40px] md:text-[72px] lg:text-[96px] font-black tracking-tight text-slate-200 leading-none select-none">
-                  Bhatnagar
-                </span>
-              </div>
-              <p className="mt-6 text-xs sm:text-sm text-slate-400 max-w-sm">
-                Designing thoughtful, conversion-focused interfaces for web and
-                product teams—blending UX, visual design and SEO-ready builds.
-              </p>
-            </div>
-
-            {/* Right: link columns */}
-            <div className="grid sm:grid-cols-3 gap-8 text-xs sm:text-sm">
-              {/* Quick links */}
-              <div className="space-y-3">
-                <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
-                  Quick Links
-                </h3>
-                <nav className="space-y-1.5 text-slate-400 flex flex-col">
-                  <FooterLink href="#about" label="About" />
-                  <FooterLink href="#services" label="Services" />
-                  <FooterLink href="#skills" label="Skills" />
-                  <FooterLink href="#stack" label="Tool Stack" />
-                  <FooterLink href="#gallery" label="Visuals" />
-                </nav>
-              </div>
-
-              {/* Portfolio */}
-              <div className="space-y-3">
-                <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
-                  Work
-                </h3>
-                <nav className="space-y-1.5 text-slate-400 flex flex-col">
-                  <FooterLink href="#projects" label="Selected Projects" />
-                  <FooterLink href="#work-details" label="Case Studies" />
-                  <FooterLink href="#testimonials" label="Testimonials" />
-                </nav>
-              </div>
-
-              {/* Social */}
-              <div className="space-y-3">
-                <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase">
-                  Social
-                </h3>
-                <nav className="space-y-1.5 text-slate-400 flex flex-col">
-                  <FooterLink href={personalInfo.linkedin} label="LinkedIn" external />
-                  <FooterLink href={`mailto:${personalInfo.email}`} label="Email" />
-                </nav>
-              </div>
             </div>
           </div>
 
-          {/* Bottom row */}
-          <div className="bg-[#050509] text-white pt-12 border-t border-white/10 mt-10 pt-6 border-t border-white/5 text-center text-[11px] sm:text-xs">
-            <p className="text-xs text-slate-300">
-              © {year} Udit Bhatnagar. All rights reserved.
-            </p>
+          {/* Right: Links Grid */}
+          <div className="lg:col-span-5 grid grid-cols-3 gap-6 text-xs sm:text-sm lg:pt-6">
+            {/* Quick links */}
+            <div className="space-y-4">
+              <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase text-xs">
+                Quick Links
+              </h3>
+              <nav className="space-y-2.5 text-slate-400 flex flex-col">
+                <FooterLink href="#about" label="About" />
+                <FooterLink href="#services" label="Services" />
+                <FooterLink href="#skills" label="Skills" />
+                <FooterLink href="#stack" label="Tool Stack" />
+                <FooterLink href="#gallery" label="Visuals" />
+              </nav>
+            </div>
+
+            {/* Portfolio */}
+            <div className="space-y-4">
+              <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase text-xs">
+                Work
+              </h3>
+              <nav className="space-y-2.5 text-slate-400 flex flex-col">
+                <FooterLink href="#projects" label="Selected Projects" />
+                <FooterLink href="#work-details" label="Case Studies" />
+                <FooterLink href="#testimonials" label="Testimonials" />
+              </nav>
+            </div>
+
+            {/* Social */}
+            <div className="space-y-4">
+              <h3 className="text-slate-300 font-semibold tracking-[0.16em] uppercase text-xs">
+                Social
+              </h3>
+              <nav className="space-y-2.5 text-slate-400 flex flex-col">
+                <FooterLink href={personalInfo.linkedin} label="LinkedIn" external />
+                <FooterLink href={`mailto:${personalInfo.email}`} label="Email" />
+              </nav>
+            </div>
           </div>
-        </section>
+        </div>
+
+        {/* Bottom copyright row */}
+        <div className="border-t border-white/5 pt-8 text-center text-[11px] sm:text-xs text-slate-400">
+          <p>© {year} Udit Bhatnagar. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );
@@ -142,7 +90,7 @@ const Contact = () => {
 
 const FooterLink = ({ href, label, external = false }) => {
   const base =
-    "inline-flex items-center gap-1 hover:text-white transition-colors";
+    "inline-flex items-center gap-1 hover:text-white transition-colors w-fit";
   if (external) {
     return (
       <a href={href} target="_blank" rel="noreferrer" className={base}>

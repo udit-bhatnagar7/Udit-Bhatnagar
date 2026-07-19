@@ -17,10 +17,11 @@ const Testimonials = () => {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h3 className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm mx-auto">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             Testimonials
-          </h3>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-sans font-black text-white">
             What clients say
           </h2>
           <p className="text-slate-400 mt-3 max-w-lg mx-auto">

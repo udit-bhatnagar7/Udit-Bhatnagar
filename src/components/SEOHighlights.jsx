@@ -14,10 +14,11 @@ const SEOHighlights = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-start mb-14">
-          <p className="text-[11px] font-semibold tracking-[0.26em] text-blue-400 uppercase mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             SEO & Performance
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-3 text-white">
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-sans font-black mb-3 text-white">
             Results beyond the visuals.
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl">

@@ -175,6 +175,7 @@ const Resume = () => {
                 <button
                     onClick={handleShare}
                     className="p-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-lg hover:shadow-blue-500/20 transition-all hover:scale-110 active:scale-95"
+                    aria-label="Share Resume"
                     title="Share Resume"
                 >
                     <Share2 size={24} />
@@ -210,6 +211,9 @@ const Resume = () => {
                                 <img
                                     src={personalInfo.photoUrl}
                                     alt={personalInfo.name}
+                                    width="160"
+                                    height="160"
+                                    loading="lazy"
                                     className="w-full h-full object-cover"
                                 />
                             </div>

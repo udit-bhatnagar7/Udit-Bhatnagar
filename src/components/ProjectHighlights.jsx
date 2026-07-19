@@ -1,19 +1,23 @@
 // components/ProjectHighlights.jsx
 import React, { useState, useRef } from "react";
 import { caseStudies } from "../data";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, FreeMode } from "swiper/modules";
+import { Navigation, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/autoplay";
+import "swiper/css/navigation";
 
 const ProjectHighlights = () => {
   const [selectedStudy, setSelectedStudy] = useState(null);
   const swiperRef = useRef(null);
+  const [prevEl, setPrevEl] = useState(null);
+  const [nextEl, setNextEl] = useState(null);
+
+  const activeStudies = caseStudies.filter((study) => study.isCurrent);
 
   return (
     <section
@@ -21,25 +25,46 @@ const ProjectHighlights = () => {
       className="py-24 bg-[#050509] border-t border-white/10 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-10"
-        >
-          <p className="text-[11px] font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
-            Selected Works
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-2">
-            Project Highlights
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl">
-            A curated list of web and mobile products I’ve designed and shipped
-            for different clients and industries.
-          </p>
-        </motion.div>
+        {/* Header with Navigation opposite */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="max-w-2xl"
+          >
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+              Selected Works
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-sans font-black text-white mb-2">
+              Project Highlights
+            </h2>
+            <p className="text-sm sm:text-base text-slate-400">
+              A curated list of web and mobile products I’ve designed and shipped
+              for different clients and industries.
+            </p>
+          </motion.div>
+
+          {/* Navigation Buttons */}
+          <div className="flex gap-2 shrink-0 md:mb-2">
+            <button
+              ref={setPrevEl}
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 hover:bg-white/10 active:scale-95 transition-all"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              ref={setNextEl}
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 hover:bg-white/10 active:scale-95 transition-all"
+              aria-label="Next slide"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
 
         {/* Swiper Slider */}
         <motion.div
@@ -49,25 +74,23 @@ const ProjectHighlights = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <Swiper
-            modules={[Autoplay, FreeMode]}
+            modules={[Navigation, FreeMode]}
+            navigation={{
+              prevEl: prevEl,
+              nextEl: nextEl,
+            }}
             slidesPerView={"auto"}
             spaceBetween={24}
-            loop={true}
+            loop={activeStudies.length > 2}
             freeMode={true}
             freeModeMomentum={true}
             freeModeMomentumRatio={0.4}
-            speed={4000}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
             className="overflow-visible cursor-grab active:cursor-grabbing"
           >
-            {caseStudies.map((study) => (
+            {activeStudies.map((study) => (
               <SwiperSlide
                 key={study.id}
                 style={{ width: "400px" }}
@@ -77,7 +100,7 @@ const ProjectHighlights = () => {
                   className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col group h-full"
                 >
                   {/* Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden shrink-0">
+                  <div className="relative aspect-[16/9] overflow-hidden shrink-0 bg-[#050509]">
                     <img
                       src={
                         study.thumbnail?.endsWith(".png")
@@ -85,7 +108,10 @@ const ProjectHighlights = () => {
                           : `https://picsum.photos/seed/${study.id}/600/400`
                       }
                       alt={study.imageAlt}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      width="400"
+                      height="300"
+                      loading="lazy"
+                      className="w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105"
                     />
                     {study.category && (
                       <span className="absolute top-4 left-4 text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1 rounded-full bg-black/70 text-white">
